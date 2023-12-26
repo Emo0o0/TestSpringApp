@@ -1,4 +1,4 @@
-package com.example.testspringapp.second;
+package com.example.testspringapp.configs;
 
 import java.util.ResourceBundle;
 

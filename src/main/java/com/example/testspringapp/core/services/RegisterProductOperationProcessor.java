@@ -1,10 +1,10 @@
-package com.example.testspringapp.operations;
+package com.example.testspringapp.core.services;
 
 import com.example.testspringapp.api.inputoutput.registerproduct.RegisterProductInput;
 import com.example.testspringapp.api.inputoutput.registerproduct.RegisterProductOperation;
 import com.example.testspringapp.api.inputoutput.registerproduct.RegisterProductOutput;
-import com.example.testspringapp.entities.Product;
-import com.example.testspringapp.repositories.ProductRepository;
+import com.example.testspringapp.persistence.entities.Product;
+import com.example.testspringapp.persistence.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

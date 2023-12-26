@@ -1,8 +1,10 @@
-package com.example.testspringapp.api.inputoutput.registeruser;
+package com.example.testspringapp.core.services;
 
-import com.example.testspringapp.entities.User;
-import com.example.testspringapp.repositories.UserRepository;
-import com.example.testspringapp.second.RegisterController;
+import com.example.testspringapp.api.inputoutput.registeruser.RegisterUserInput;
+import com.example.testspringapp.api.inputoutput.registeruser.RegisterUserOperation;
+import com.example.testspringapp.api.inputoutput.registeruser.RegisterUserOutput;
+import com.example.testspringapp.persistence.entities.User;
+import com.example.testspringapp.persistence.repositories.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

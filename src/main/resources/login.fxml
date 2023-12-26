@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="294.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testspringapp.second.LoginController">
+<AnchorPane prefHeight="294.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testspringapp.controllers.LoginController">
    <children>
       <Button layoutX="164.0" layoutY="165.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="86.0" text="Login">
          <font>

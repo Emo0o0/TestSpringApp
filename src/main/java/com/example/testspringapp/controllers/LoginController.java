@@ -1,7 +1,9 @@
-package com.example.testspringapp.second;
+package com.example.testspringapp.controllers;
 
-import com.example.testspringapp.entities.User;
-import com.example.testspringapp.repositories.UserRepository;
+import com.example.testspringapp.persistence.entities.User;
+import com.example.testspringapp.persistence.repositories.UserRepository;
+import com.example.testspringapp.configs.FxmlView;
+import com.example.testspringapp.configs.StageManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

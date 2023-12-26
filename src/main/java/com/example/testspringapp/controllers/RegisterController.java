@@ -1,21 +1,19 @@
-package com.example.testspringapp.second;
+package com.example.testspringapp.controllers;
 
 import com.example.testspringapp.api.inputoutput.registeruser.RegisterUserInput;
 import com.example.testspringapp.api.inputoutput.registeruser.RegisterUserOperation;
-import com.example.testspringapp.entities.User;
-import com.example.testspringapp.repositories.UserRepository;
+import com.example.testspringapp.persistence.repositories.UserRepository;
+import com.example.testspringapp.configs.FxmlView;
+import com.example.testspringapp.configs.StageManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.paint.Color;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-
-import java.util.Optional;
 
 @Component
 public class RegisterController {

@@ -1,7 +1,7 @@
 package com.example.testspringapp.api.inputoutput.registerproduct;
 
 import com.example.testspringapp.api.base.OperationResult;
-import com.example.testspringapp.entities.ProductType;
+import com.example.testspringapp.persistence.entities.ProductType;
 import lombok.*;
 
 @Getter

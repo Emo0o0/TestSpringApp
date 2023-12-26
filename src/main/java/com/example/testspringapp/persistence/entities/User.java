@@ -1,4 +1,4 @@
-package com.example.testspringapp.entities;
+package com.example.testspringapp.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

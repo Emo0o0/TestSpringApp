@@ -1,6 +1,6 @@
-package com.example.testspringapp.repositories;
+package com.example.testspringapp.persistence.repositories;
 
-import com.example.testspringapp.entities.User;
+import com.example.testspringapp.persistence.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

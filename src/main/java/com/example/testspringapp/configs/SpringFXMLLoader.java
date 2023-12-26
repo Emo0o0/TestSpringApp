@@ -1,4 +1,4 @@
-package com.example.testspringapp.second;
+package com.example.testspringapp.configs;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

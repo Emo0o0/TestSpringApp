@@ -1,8 +1,7 @@
 package com.example.testspringapp;
 
-import com.example.testspringapp.first.FXApplication;
-import com.example.testspringapp.second.FxmlView;
-import com.example.testspringapp.second.StageManager;
+import com.example.testspringapp.configs.FxmlView;
+import com.example.testspringapp.configs.StageManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
