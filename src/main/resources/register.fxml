@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="273.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testspringapp.second.RegisterController">
+   <children>
+      <Label layoutX="75.0" layoutY="61.0" text="Username:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="75.0" layoutY="98.0" text="Password:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="75.0" layoutY="135.0" text="Confirm Password:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <PasswordField fx:id="password" layoutX="170.0" layoutY="98.0" />
+      <PasswordField fx:id="confirmPassword" layoutX="215.0" layoutY="135.0" />
+      <TextField fx:id="username" layoutX="170.0" layoutY="61.0" />
+      <Button layoutX="150.0" layoutY="197.0" mnemonicParsing="false" onAction="#register" prefHeight="38.0" prefWidth="104.0" text="Register">
+         <textFill>
+            <RadialGradient centerX="0.5044053031484461" centerY="0.9810606168978142" radius="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9789473414421082" green="0.15228070318698883" blue="0.15228070318698883" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.2167000025510788" green="0.8799999952316284" blue="0.1143999993801117" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="invalidInfo" layoutX="145.0" layoutY="166.0" text="Invalid information" textFill="#f70909" visible="false">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="success" layoutX="131.0" layoutY="166.0" text="Successful Registration" textFill="LIME" visible="false">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="loginPage" layoutX="261.0" layoutY="204.0" text="Back to login page." textFill="#0bccc9" onMouseClicked="#returnToLogin">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
