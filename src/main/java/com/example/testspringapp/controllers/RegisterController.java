@@ -1,7 +1,7 @@
 package com.example.testspringapp.controllers;
 
-import com.example.testspringapp.api.inputoutput.registeruser.RegisterUserInput;
-import com.example.testspringapp.api.inputoutput.registeruser.RegisterUserOperation;
+import com.example.testspringapp.api.inputoutput.registermrp.RegisterMRPInput;
+import com.example.testspringapp.api.inputoutput.registermrp.RegisterMRPOperation;
 import com.example.testspringapp.persistence.repositories.UserRepository;
 import com.example.testspringapp.configs.FxmlView;
 import com.example.testspringapp.configs.StageManager;
@@ -33,15 +33,15 @@ public class RegisterController {
     @FXML
     private Label loginPage;
 
-    private final RegisterUserOperation registerUserOperation;
+    private final RegisterMRPOperation registerMRPOperation;
     private final UserRepository userRepository;
     private final StageManager stageManager;
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
     @Lazy
-    public RegisterController(RegisterUserOperation registerUserOperation, UserRepository userRepository, StageManager stageManager, PasswordEncoder passwordEncoder) {
-        this.registerUserOperation = registerUserOperation;
+    public RegisterController(RegisterMRPOperation registerMRPOperation, UserRepository userRepository, StageManager stageManager, PasswordEncoder passwordEncoder) {
+        this.registerMRPOperation = registerMRPOperation;
         this.userRepository = userRepository;
         this.stageManager = stageManager;
         this.passwordEncoder = passwordEncoder;
@@ -52,14 +52,14 @@ public class RegisterController {
         success.setVisible(false);
         invalidInfo.setVisible(false);
 
-        RegisterUserInput input = RegisterUserInput.builder()
+        RegisterMRPInput input = RegisterMRPInput.builder()
                 .username(username.getText())
                 .password(password.getText())
                 .confirmPassword(confirmPassword.getText())
                 .build();
 
         try {
-            registerUserOperation.process(input);
+            registerMRPOperation.process(input);
             success.setVisible(true);
         }catch (Exception e){
             e.printStackTrace();

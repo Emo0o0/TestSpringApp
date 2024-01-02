@@ -22,7 +22,7 @@ public class User {
     private String name;
     @Column
     private String password;
-
-    @OneToMany
-    private Set<Product> products;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private UserType userType;
 }

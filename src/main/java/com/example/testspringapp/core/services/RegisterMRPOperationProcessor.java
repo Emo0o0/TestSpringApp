@@ -1,9 +1,10 @@
 package com.example.testspringapp.core.services;
 
-import com.example.testspringapp.api.inputoutput.registeruser.RegisterUserInput;
-import com.example.testspringapp.api.inputoutput.registeruser.RegisterUserOperation;
-import com.example.testspringapp.api.inputoutput.registeruser.RegisterUserOutput;
+import com.example.testspringapp.api.inputoutput.registermrp.RegisterMRPInput;
+import com.example.testspringapp.api.inputoutput.registermrp.RegisterMRPOperation;
+import com.example.testspringapp.api.inputoutput.registermrp.RegisterMRPOutput;
 import com.example.testspringapp.persistence.entities.User;
+import com.example.testspringapp.persistence.entities.UserType;
 import com.example.testspringapp.persistence.repositories.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -11,36 +12,35 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class RegisterUserOperationProcessor implements RegisterUserOperation {
+public class RegisterMRPOperationProcessor implements RegisterMRPOperation {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public RegisterUserOperationProcessor(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public RegisterMRPOperationProcessor(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
     @Override
-    public RegisterUserOutput process(RegisterUserInput input) {
+    public RegisterMRPOutput process(RegisterMRPInput input) {
 
-        if(!validation(input)){
-            throw new RuntimeException("Invalid data");
-        }
+        validation(input);
 
         User user = User.builder()
                 .name(input.getUsername())
                 .password(passwordEncoder.encode(input.getPassword()))
+                .userType(UserType.MRP)
                 .build();
 
         userRepository.save(user);
 
-        return RegisterUserOutput.builder()
+        return RegisterMRPOutput.builder()
                 .username(input.getUsername())
                 .build();
     }
 
-    private boolean validation(RegisterUserInput input){
+    private boolean validation(RegisterMRPInput input){
 
         if(input.getUsername().isBlank()){
             throw new RuntimeException("Username cannot be blank");

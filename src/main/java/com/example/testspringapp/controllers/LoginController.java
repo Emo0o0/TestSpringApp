@@ -1,6 +1,7 @@
 package com.example.testspringapp.controllers;
 
 import com.example.testspringapp.persistence.entities.User;
+import com.example.testspringapp.persistence.entities.UserType;
 import com.example.testspringapp.persistence.repositories.UserRepository;
 import com.example.testspringapp.configs.FxmlView;
 import com.example.testspringapp.configs.StageManager;
@@ -15,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
+
 @Component
 public class LoginController {
 
@@ -44,24 +46,29 @@ public class LoginController {
 
     public void login() {
 
+
         Optional<User> optionalUser = userRepository.findByName(username.getText());
 
-        if(optionalUser.isEmpty()) {
-            invalidInfo.setVisible(true);
-            throw new RuntimeException("Access denied");
+        if (optionalUser.isEmpty()) {
+            accessDenied();
         }
 
-        if(!passwordEncoder.matches(password.getText(),optionalUser.get().getPassword())){
-            invalidInfo.setVisible(true);
-            throw new RuntimeException("Access denied");
+        User user = optionalUser.get();
+
+        if (!passwordEncoder.matches(password.getText(), user.getPassword())) {
+            accessDenied();
         }
 
         System.out.println("SUCCESSFUL LOGIN");
 
+        if (user.getUserType() == UserType.ADMINISTRATOR)
+            stageManager.switchScene(FxmlView.REGISTER_MRP);
+
     }
 
-    public void register(){
-        stageManager.switchScene(FxmlView.REGISTER);
+    private void accessDenied() {
+        invalidInfo.setVisible(true);
+        throw new RuntimeException("Access denied");
     }
 
 }

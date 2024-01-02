@@ -1,4 +1,4 @@
-package com.example.testspringapp.api.inputoutput.registeruser;
+package com.example.testspringapp.api.inputoutput.registermrp;
 
 import com.example.testspringapp.api.base.OperationResult;
 import lombok.*;
@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RegisterUserOutput implements OperationResult {
+public class RegisterMRPOutput implements OperationResult {
 
     private String username;
 

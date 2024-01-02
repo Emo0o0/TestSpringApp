@@ -14,15 +14,15 @@ public enum FxmlView {
         String getFxmlFile() {
             return "login.fxml";
         }
-    }, REGISTER{
+    }, REGISTER_MRP {
         @Override
         String getTitle() {
-            return getStringFromResourceBundle("register.title");
+            return getStringFromResourceBundle("registerUser.title");
         }
 
         @Override
         String getFxmlFile() {
-            return "register.fxml";
+            return "registerMRP.fxml";
         }
     };
 

@@ -1,7 +1,6 @@
-package com.example.testspringapp.api.inputoutput.registeruser;
+package com.example.testspringapp.api.inputoutput.registermrp;
 
 import com.example.testspringapp.api.base.OperationInput;
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 
@@ -11,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RegisterUserInput implements OperationInput {
+public class RegisterMRPInput implements OperationInput {
 
     private String username;
     private String password;

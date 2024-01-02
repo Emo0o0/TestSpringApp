@@ -2,8 +2,12 @@ package com.example.testspringapp;
 
 import com.example.testspringapp.configs.FxmlView;
 import com.example.testspringapp.configs.StageManager;
+import com.example.testspringapp.persistence.entities.User;
+import com.example.testspringapp.persistence.entities.UserType;
+import com.example.testspringapp.persistence.repositories.UserRepository;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
