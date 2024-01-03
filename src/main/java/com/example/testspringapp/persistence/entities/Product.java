@@ -21,8 +21,7 @@ public class Product {
     private ProductType productType;
     @Column
     private Double amortization;
-    @ManyToOne
-    private User user;
+
 
 
 }
