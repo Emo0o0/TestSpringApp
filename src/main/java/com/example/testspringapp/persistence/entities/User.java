@@ -3,8 +3,6 @@ package com.example.testspringapp.persistence.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
-
 @Entity
 @Table(name = "users")
 @Getter
@@ -19,7 +17,7 @@ public class User {
     private Long id;
 
     @Column(unique = true)
-    private String name;
+    private String username;
     @Column
     private String password;
     @Column

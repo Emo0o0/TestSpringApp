@@ -11,5 +11,6 @@ import lombok.*;
 public class RegisterMRPOutput implements OperationResult {
 
     private String username;
+    private Boolean success;
 
 }

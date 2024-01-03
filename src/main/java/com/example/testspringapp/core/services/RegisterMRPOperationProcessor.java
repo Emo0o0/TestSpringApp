@@ -3,24 +3,25 @@ package com.example.testspringapp.core.services;
 import com.example.testspringapp.api.inputoutput.registermrp.RegisterMRPInput;
 import com.example.testspringapp.api.inputoutput.registermrp.RegisterMRPOperation;
 import com.example.testspringapp.api.inputoutput.registermrp.RegisterMRPOutput;
+import com.example.testspringapp.core.exceptions.registermrp.BlankPasswordException;
+import com.example.testspringapp.core.exceptions.registermrp.BlankUsernameException;
+import com.example.testspringapp.core.exceptions.registermrp.PasswordsNotMatchingException;
+import com.example.testspringapp.core.exceptions.registermrp.TakenUsernameException;
 import com.example.testspringapp.persistence.entities.User;
 import com.example.testspringapp.persistence.entities.UserType;
 import com.example.testspringapp.persistence.repositories.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class RegisterMRPOperationProcessor implements RegisterMRPOperation {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-
-    public RegisterMRPOperationProcessor(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @Override
     public RegisterMRPOutput process(RegisterMRPInput input) {
@@ -28,7 +29,7 @@ public class RegisterMRPOperationProcessor implements RegisterMRPOperation {
         validation(input);
 
         User user = User.builder()
-                .name(input.getUsername())
+                .username(input.getUsername())
                 .password(passwordEncoder.encode(input.getPassword()))
                 .userType(UserType.MRP)
                 .build();
@@ -40,25 +41,24 @@ public class RegisterMRPOperationProcessor implements RegisterMRPOperation {
                 .build();
     }
 
-    private boolean validation(RegisterMRPInput input){
+    private void validation(RegisterMRPInput input){
 
         if(input.getUsername().isBlank()){
-            throw new RuntimeException("Username cannot be blank");
+            throw new BlankUsernameException("Username cannot be blank");
         }
         if(input.getPassword().isBlank()){
-            throw new RuntimeException("Password cannot be blank");
+            throw new BlankPasswordException("Password cannot be blank");
         }
 
-        Optional<User> optionalUser = userRepository.findByName(input.getUsername());
+        Optional<User> optionalUser = userRepository.findByUsername(input.getUsername());
 
         if (optionalUser.isPresent()) {
-            throw new RuntimeException("This username is taken");
+            throw new TakenUsernameException("This username is taken");
         }
 
         if(!input.getPassword().equals(input.getConfirmPassword())){
-            throw new RuntimeException("Passwords do not match");
+            throw new PasswordsNotMatchingException("Passwords do not match");
         }
 
-        return true;
     }
 }

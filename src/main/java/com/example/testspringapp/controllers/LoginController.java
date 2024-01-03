@@ -1,5 +1,7 @@
 package com.example.testspringapp.controllers;
 
+import com.example.testspringapp.api.inputoutput.login.LoginOperation;
+import com.example.testspringapp.api.inputoutput.login.LoginOperationInput;
 import com.example.testspringapp.persistence.entities.User;
 import com.example.testspringapp.persistence.entities.UserType;
 import com.example.testspringapp.persistence.repositories.UserRepository;
@@ -35,40 +37,26 @@ public class LoginController {
     private final UserRepository userRepository;
 
     private final PasswordEncoder passwordEncoder;
+    private final LoginOperation loginOperation;
 
     @Autowired
     @Lazy
-    public LoginController(StageManager stageManager, UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public LoginController(StageManager stageManager, UserRepository userRepository, PasswordEncoder passwordEncoder, LoginOperation loginOperation) {
         this.stageManager = stageManager;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.loginOperation = loginOperation;
     }
 
     public void login() {
 
+        LoginOperationInput input = LoginOperationInput.builder()
+                .username(username.getText())
+                .password(password.getText())
+                .build();
 
-        Optional<User> optionalUser = userRepository.findByName(username.getText());
-
-        if (optionalUser.isEmpty()) {
-            accessDenied();
-        }
-
-        User user = optionalUser.get();
-
-        if (!passwordEncoder.matches(password.getText(), user.getPassword())) {
-            accessDenied();
-        }
-
-        System.out.println("SUCCESSFUL LOGIN");
-
-        if (user.getUserType() == UserType.ADMINISTRATOR)
-            stageManager.switchScene(FxmlView.REGISTER_MRP);
+        if(loginOperation.process(input).getSuccess())
+            invalidInfo.setVisible(true);
 
     }
-
-    private void accessDenied() {
-        invalidInfo.setVisible(true);
-        throw new RuntimeException("Access denied");
-    }
-
 }
