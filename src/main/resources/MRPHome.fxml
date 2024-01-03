@@ -1,33 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testspringapp.controllers.MRPHomeController">
-   <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="384.0" layoutX="32.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="536.0">
-         <fill>
-            <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.1055510938167572" green="0.07739999890327454" blue="0.8600000143051147" />
-                     </color>
-                  </Stop>
-                  <Stop offset="0.007662835249042145">
-                     <color>
-                        <Color red="0.1055510938167572" green="0.07739999890327454" blue="0.8600000143051147" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-   </children>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="697.0" prefWidth="894.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testspringapp.controllers.MRPHomeController">
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6e6e6e31" height="697.0" layoutX="163.0" stroke="BLACK"
+              strokeType="INSIDE" strokeWidth="0.0" width="733.0"/>
+   <Rectangle arcHeight="5.0" arcWidth="5.0" height="704.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE"
+              strokeWidth="0.0" width="163.0">
+      <fill>
+         <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color green="0.4901960790157318" blue="0.9803921580314636" opacity="0.7099999785423279"/>
+                  </color>
+               </Stop>
+               <Stop offset="0.007662835249042145">
+                  <color>
+                     <Color red="0.00860000029206276" green="0.6471499800682068" blue="0.8600000143051147"/>
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color red="0.019999999552965164" green="0.019999999552965164" blue="0.019999999552965164"
+                            opacity="0.6415584683418274"/>
+                  </color>
+               </Stop>
+            </stops>
+         </LinearGradient>
+      </fill>
+   </Rectangle>
+   <Label fx:id="registerProductLabel" onMouseEntered="#registerProductHover" onMouseExited="#registerProductHoverExit" layoutX="6.0" layoutY="29.0" text="Register Product" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="18.0"/>
+      </font>
+   </Label>
+   <Label fx:id="registerCustomerLabel" onMouseEntered="#registerCustomerHover" onMouseExited="#registerCustomerHoverExit" layoutX="4.0" layoutY="80.0" text="Register Customer" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="18.0"/>
+      </font>
+   </Label>
+   <Label fx:id="addProductsLabel" onMouseEntered="#addProductHover" onMouseExited="#addProductHoverExit" layoutY="133.0" prefHeight="64.0" prefWidth="153.0" text="Register Product To Customer Card" textFill="WHITE"
+          wrapText="true">
+      <font>
+         <Font name="System Bold" size="18.0"/>
+      </font>
+   </Label>
+   <Label fx:id="removeProductsLabel" onMouseEntered="#removeProductHover" onMouseExited="#removeProductHoverExit" layoutY="214.0" prefHeight="87.0" prefWidth="153.0" text="Remove Product From Customer Card" textFill="WHITE"
+          wrapText="true">
+      <font>
+         <Font name="System Bold" size="18.0"/>
+      </font>
+   </Label>
+   <Label fx:id="leaveLabel" onMouseEntered="#leaveHover" onMouseExited="#leaveHoverExit" layoutY="407.0" text="Leave" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="18.0"/>
+      </font>
+   </Label>
+   <Label fx:id="scrappingCriteriaLabel" onMouseEntered="#scrapCriteriaHover" onMouseExited="#scrapCriteriaHoverExit" layoutY="365.0" text="Scrap Criteria" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="18.0"/>
+      </font>
+   </Label>
+   <Label fx:id="scrapProductLabel" onMouseEntered="#scrapProductHover" onMouseExited="#scrapProductHoverExit" layoutY="322.0" text="Scrap Product" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="18.0"/>
+      </font>
+   </Label>
 </AnchorPane>
