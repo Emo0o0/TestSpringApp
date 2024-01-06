@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="894.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testspringapp.controllers.MRPHomeRegisterProductController">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6e6e6e31" height="599.0" layoutX="163.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="733.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" height="606.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="163.0">
+        <fill>
+            <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+                <stops>
+                    <Stop>
+                        <color>
+                            <Color green="0.4901960790157318" blue="0.9803921580314636" opacity="0.7099999785423279" />
+                        </color>
+                    </Stop>
+                    <Stop offset="0.007662835249042145">
+                        <color>
+                            <Color red="0.00860000029206276" green="0.6471499800682068" blue="0.8600000143051147" />
+                        </color>
+                    </Stop>
+                    <Stop offset="1.0">
+                        <color>
+                            <Color red="0.019999999552965164" green="0.019999999552965164" blue="0.019999999552965164" opacity="0.6415584683418274" />
+                        </color>
+                    </Stop>
+                </stops>
+            </LinearGradient>
+        </fill>
+    </Rectangle>
+    <Label fx:id="registerProductLabel" layoutX="6.0" layoutY="29.0" text="Register Product" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="registerCustomerLabel" layoutX="4.0" layoutY="80.0" onMouseEntered="#registerCustomerHover" onMouseExited="#registerCustomerHoverExit" text="Register Customer" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="addProductsLabel" layoutY="133.0" onMouseEntered="#addProductHover" onMouseExited="#addProductHoverExit" prefHeight="64.0" prefWidth="153.0" text="Register Product To Customer Card" textFill="WHITE" wrapText="true">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="removeProductsLabel" layoutY="214.0" onMouseEntered="#removeProductHover" onMouseExited="#removeProductHoverExit" prefHeight="87.0" prefWidth="153.0" text="Remove Product From Customer Card" textFill="WHITE" wrapText="true">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="leaveLabel" layoutY="407.0" onMouseEntered="#leaveHover" onMouseExited="#leaveHoverExit" text="Leave" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="scrappingCriteriaLabel" layoutY="365.0" onMouseEntered="#scrapCriteriaHover" onMouseExited="#scrapCriteriaHoverExit" text="Scrap Criteria" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="scrapProductLabel" layoutY="322.0" onMouseEntered="#scrapProductHover" onMouseExited="#scrapProductHoverExit" text="Scrap Product" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+   <TextField layoutX="209.0" layoutY="55.0" prefHeight="122.0" prefWidth="421.0" />
+   <Label layoutX="209.0" layoutY="25.0" text="Product Description" textFill="#00ff28">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Label>
+   <Label layoutX="209.0" layoutY="187.0" text="Product Type" textFill="#00ff28">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Label>
+   <Label layoutX="209.0" layoutY="230.0" text="Amortization" textFill="#00ff28">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Label>
+   <TextField layoutX="372.0" layoutY="235.0" />
+   <ComboBox fx:id="productTypes" layoutX="372.0" layoutY="192.0" prefWidth="150.0" />
+</AnchorPane>

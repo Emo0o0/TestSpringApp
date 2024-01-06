@@ -4,6 +4,7 @@ import com.example.testspringapp.api.inputoutput.login.LoginOperation;
 import com.example.testspringapp.api.inputoutput.login.LoginOperationInput;
 import com.example.testspringapp.api.inputoutput.login.LoginOperationOutput;
 import com.example.testspringapp.configs.FxmlView;
+import com.example.testspringapp.configs.LoggedUser;
 import com.example.testspringapp.configs.StageManager;
 import com.example.testspringapp.core.exceptions.login.UserNotFoundException;
 import com.example.testspringapp.core.exceptions.login.WrongPasswordException;
@@ -47,9 +48,12 @@ public class LoginOperationProcessor implements LoginOperation {
         else
             stageManager.switchScene(FxmlView.MRP_HOME);
 
+        LoggedUser.setLoggedUser(user);
+
         return LoginOperationOutput.builder()
                 .username(user.getUsername())
                 .success(true)
                 .build();
+
     }
 }

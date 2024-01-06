@@ -34,6 +34,16 @@ public enum FxmlView {
         String getFxmlFile() {
             return "MRPHome.fxml";
         }
+    }, MRP_HOME_REGISTER_PRODUCT {
+        @Override
+        String getTitle() {
+            return getStringFromResourceBundle("MRPHomeRegisterProduct.title");
+        }
+
+        @Override
+        String getFxmlFile() {
+            return "MRPHomeRegisterProduct.fxml";
+        }
     };
 
     abstract String getTitle();
