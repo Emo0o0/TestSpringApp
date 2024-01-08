@@ -12,7 +12,9 @@ import lombok.*;
 public class RegisterProductOutput implements OperationResult {
 
     private long id;
+    private String title;
     private String description;
     private ProductType productType;
     private Double amortization;
+    private boolean success;
 }

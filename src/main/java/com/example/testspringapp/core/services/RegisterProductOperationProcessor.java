@@ -13,28 +13,28 @@ import org.springframework.stereotype.Service;
 @Service
 public class RegisterProductOperationProcessor implements RegisterProductOperation {
 
-    @Autowired
     private final ProductRepository productRepository;
 
     @Override
     public RegisterProductOutput process(RegisterProductInput registerProductInput) {
 
         Product product = Product.builder()
-                .productType(registerProductInput.getProductType())
+                .title(registerProductInput.getTitle())
                 .description(registerProductInput.getDescription())
+                .productType(registerProductInput.getProductType())
                 .amortization(registerProductInput.getAmortization())
                 .build();
 
 
         productRepository.save(product);
 
-        RegisterProductOutput output = RegisterProductOutput.builder()
+        return RegisterProductOutput.builder()
                 .id(product.getId())
-                .productType(product.getProductType())
+                .title(product.getTitle())
                 .description(product.getDescription())
+                .productType(product.getProductType())
                 .amortization(product.getAmortization())
+                .success(true)
                 .build();
-
-        return output;
     }
 }

@@ -40,6 +40,11 @@ public class MRPHomeRegisterProductController {
         this.stageManager = stageManager;
     }
 
+    @FXML
+    public void initialize(){
+        showProductTypes();
+    }
+
     //region MouseHover
     public void registerCustomerHover(MouseEvent mouseEvent) {
         registerCustomerLabel.setUnderline(true);
@@ -89,6 +94,12 @@ public class MRPHomeRegisterProductController {
         scrapProductLabel.setUnderline(false);
     }
     //endregion
+
+    public void showProductTypes(){
+        productTypes.getItems().add("DMA");
+        productTypes.getItems().add("MA");
+        productTypes.setVisibleRowCount(2);
+    }
 
     public void registerProduct() {
 

@@ -16,6 +16,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column
+    private String title;
+    @Column
     private String description;
     @Enumerated(EnumType.STRING)
     private ProductType productType;

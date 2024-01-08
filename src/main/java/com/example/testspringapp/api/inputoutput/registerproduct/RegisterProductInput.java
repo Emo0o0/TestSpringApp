@@ -11,6 +11,7 @@ import lombok.*;
 @Builder
 public class RegisterProductInput implements OperationInput {
 
+    private String title;
     private String description;
     private ProductType productType;
     private Double amortization;
