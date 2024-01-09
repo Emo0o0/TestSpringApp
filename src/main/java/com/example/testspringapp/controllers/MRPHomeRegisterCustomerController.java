@@ -2,22 +2,17 @@ package com.example.testspringapp.controllers;
 
 import com.example.testspringapp.configs.FxmlView;
 import com.example.testspringapp.configs.StageManager;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MRPHomeRegisterProductController {
-
+public class MRPHomeRegisterCustomerController {
 
     @FXML
     private Label registerProductLabel;
@@ -41,7 +36,7 @@ public class MRPHomeRegisterProductController {
 
     @Autowired
     @Lazy
-    public MRPHomeRegisterProductController(StageManager stageManager) {
+    public MRPHomeRegisterCustomerController(StageManager stageManager) {
         this.stageManager = stageManager;
     }
 
@@ -57,12 +52,12 @@ public class MRPHomeRegisterProductController {
     public void submitHoverExit(){
         submit.setTextFill(Color.web("#942929"));
     }
-    public void registerCustomerHover(MouseEvent mouseEvent) {
-        registerCustomerLabel.setUnderline(true);
+    public void registerProductHover(MouseEvent mouseEvent) {
+        registerProductLabel.setUnderline(true);
     }
 
-    public void registerCustomerHoverExit(MouseEvent mouseEvent) {
-        registerCustomerLabel.setUnderline(false);
+    public void registerProductHoverExit(MouseEvent mouseEvent) {
+        registerProductLabel.setUnderline(false);
     }
 
     public void addProductHover(MouseEvent mouseEvent) {
@@ -112,12 +107,12 @@ public class MRPHomeRegisterProductController {
         productTypes.setVisibleRowCount(2);
     }
 
-    public void setScrappingCriteria() {
-
+    public void registerProduct() {
+        stageManager.switchScene(FxmlView.MRP_HOME_REGISTER_PRODUCT);
     }
 
-    public void registerCustomer() {
-        stageManager.switchScene(FxmlView.MRP_HOME_REGISTER_CUSTOMER);
+    public void setScrappingCriteria() {
+
     }
 
     public void addProductToClientCard() {
@@ -135,6 +130,5 @@ public class MRPHomeRegisterProductController {
     public void leave() {
         stageManager.switchScene(FxmlView.LOGIN);
     }
-
 
 }

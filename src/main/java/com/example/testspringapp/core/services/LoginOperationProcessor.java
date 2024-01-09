@@ -46,7 +46,7 @@ public class LoginOperationProcessor implements LoginOperation {
         if (user.getUserType() == UserType.ADMINISTRATOR)
             stageManager.switchScene(FxmlView.REGISTER_MRP);
         else
-            stageManager.switchScene(FxmlView.MRP_HOME);
+            stageManager.switchScene(FxmlView.MRP_HOME_REGISTER_PRODUCT);
 
         LoggedUser.setLoggedUser(user);
 
