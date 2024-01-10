@@ -9,8 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
@@ -36,7 +34,7 @@ public class MRPHomeRegisterProductController {
     @FXML
     private ComboBox<String> productTypes;
     @FXML
-    private Label submit;
+    private Button submit;
     private final StageManager stageManager;
 
     @Autowired
@@ -51,12 +49,6 @@ public class MRPHomeRegisterProductController {
     }
 
     //region MouseHover
-    public void submitHover(){
-        submit.setTextFill(Color.WHITE);
-    }
-    public void submitHoverExit(){
-        submit.setTextFill(Color.web("#942929"));
-    }
     public void registerCustomerHover(MouseEvent mouseEvent) {
         registerCustomerLabel.setUnderline(true);
     }

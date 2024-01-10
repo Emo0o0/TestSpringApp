@@ -3,6 +3,7 @@ package com.example.testspringapp.controllers;
 import com.example.testspringapp.configs.FxmlView;
 import com.example.testspringapp.configs.StageManager;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -29,9 +30,11 @@ public class MRPRegisterProductToCustomerController {
     @FXML
     private Label leaveLabel;
     @FXML
-    private ComboBox<String> productTypes;
+    private ComboBox<String> chooseClient;
     @FXML
-    private Label submit;
+    private ComboBox<String> chooseProduct;
+    @FXML
+    private Button submit;
     private final StageManager stageManager;
 
     @Autowired
@@ -42,10 +45,18 @@ public class MRPRegisterProductToCustomerController {
 
     @FXML
     public void initialize(){
-        showProductTypes();
+
     }
 
     //region MouseHover
+
+    public void registerCustomerHover(MouseEvent mouseEvent) {
+        registerCustomerLabel.setUnderline(true);
+    }
+
+    public void registerCustomerHoverExit(MouseEvent mouseEvent) {
+        registerCustomerLabel.setUnderline(false);
+    }
     public void submitHover(){
         submit.setTextFill(Color.WHITE);
     }
@@ -92,12 +103,6 @@ public class MRPRegisterProductToCustomerController {
         scrapProductLabel.setUnderline(false);
     }
     //endregion
-
-    public void showProductTypes(){
-        productTypes.getItems().add("DMA");
-        productTypes.getItems().add("MA");
-        productTypes.setVisibleRowCount(2);
-    }
 
     public void registerProduct() {
         stageManager.switchScene(FxmlView.MRP_HOME_REGISTER_PRODUCT);

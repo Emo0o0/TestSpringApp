@@ -3,8 +3,10 @@ package com.example.testspringapp.controllers;
 import com.example.testspringapp.configs.FxmlView;
 import com.example.testspringapp.configs.StageManager;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +31,13 @@ public class MRPHomeRegisterCustomerController {
     @FXML
     private Label leaveLabel;
     @FXML
-    private ComboBox<String> productTypes;
+    private TextField clientName;
     @FXML
-    private Label submit;
+    private TextField clientEmail;
+    @FXML
+    private TextField clientPhone;
+    @FXML
+    private Button submit;
     private final StageManager stageManager;
 
     @Autowired
@@ -42,10 +48,11 @@ public class MRPHomeRegisterCustomerController {
 
     @FXML
     public void initialize(){
-        showProductTypes();
+
     }
 
     //region MouseHover
+
     public void submitHover(){
         submit.setTextFill(Color.WHITE);
     }
@@ -101,11 +108,6 @@ public class MRPHomeRegisterCustomerController {
     }
     //endregion
 
-    public void showProductTypes(){
-        productTypes.getItems().add("DMA");
-        productTypes.getItems().add("MA");
-        productTypes.setVisibleRowCount(2);
-    }
 
     public void registerProduct() {
         stageManager.switchScene(FxmlView.MRP_HOME_REGISTER_PRODUCT);

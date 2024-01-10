@@ -1,0 +1,11 @@
+#submit{
+    -fx-border-color: black;
+    -fx-border-radius: 5px;
+    -fx-background-color: #dedfc9;
+}
+#submit:hover{
+    -fx-background-color: white;
+}
+#submit:pressed{
+    -fx-background-color: #dedfc9;
+}
