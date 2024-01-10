@@ -10,43 +10,43 @@
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#912525" height="700.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="300.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dedfc9" height="700.0" layoutX="300.0" stroke="#d11414" strokeType="INSIDE" strokeWidth="0.0" width="900.0" />
 
-    <Label fx:id="registerProductLabel" layoutX="66.0" layoutY="25.0" onMouseClicked="#registerProduct" onMouseEntered="#registerProductHover" onMouseExited="#registerProductHoverExit" text="Register Product" textFill="WHITE">
+    <Label fx:id="registerProductLabel" layoutX="72.0" layoutY="46.0" onMouseClicked="#registerProduct" onMouseEntered="#registerProductHover" onMouseExited="#registerProductHoverExit" text="Register Product" textFill="WHITE">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
-    <Label fx:id="registerCustomerLabel" layoutX="58.0" layoutY="67.0" text="Register Customer" textFill="WHITE" underline="true">
+    <Label fx:id="registerCustomerLabel" layoutX="64.0" layoutY="91.0" text="Register Customer" textFill="WHITE" underline="true">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
-    <Label fx:id="addProductsLabel" layoutX="52.0" layoutY="113.0" onMouseClicked="#addProductToClientCard" onMouseEntered="#addProductHover" onMouseExited="#addProductHoverExit" prefHeight="64.0" prefWidth="174.0" text="Register Product To Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Label fx:id="addProductsLabel" layoutX="64.0" layoutY="149.0" onMouseClicked="#addProductToClientCard" onMouseEntered="#addProductHover" onMouseExited="#addProductHoverExit" prefHeight="64.0" prefWidth="174.0" text="Register Product To Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
-    <Label fx:id="removeProductsLabel" layoutX="51.0" layoutY="194.0" onMouseEntered="#removeProductHover" onMouseExited="#removeProductHoverExit" prefHeight="87.0" prefWidth="198.0" text="Remove Product From Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Label fx:id="removeProductsLabel" layoutX="51.0" layoutY="223.0" onMouseEntered="#removeProductHover" onMouseExited="#removeProductHoverExit" prefHeight="87.0" prefWidth="198.0" text="Remove Product From Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
-    <Label fx:id="leaveLabel" layoutX="99.0" layoutY="497.0" onMouseClicked="#leave" onMouseEntered="#leaveHover" onMouseExited="#leaveHoverExit" text="Leave" textFill="WHITE">
+    <Label fx:id="leaveLabel" layoutX="99.0" layoutY="591.0" onMouseClicked="#leave" onMouseEntered="#leaveHover" onMouseExited="#leaveHoverExit" text="Log Out" textFill="WHITE">
         <font>
             <Font name="System Bold" size="30.0" />
         </font>
     </Label>
 
-    <Label fx:id="scrappingCriteriaLabel" layoutX="77.0" layoutY="369.0" onMouseEntered="#scrapCriteriaHover" onMouseExited="#scrapCriteriaHoverExit" text="Scrap Criteria" textFill="WHITE">
+    <Label fx:id="scrappingCriteriaLabel" layoutX="87.0" layoutY="392.0" onMouseEntered="#scrapCriteriaHover" onMouseExited="#scrapCriteriaHoverExit" text="Scrap Criteria" textFill="WHITE">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
-    <Label fx:id="scrapProductLabel" layoutX="75.0" layoutY="313.0" onMouseEntered="#scrapProductHover" onMouseExited="#scrapProductHoverExit" text="Scrap Product" textFill="WHITE">
+    <Label fx:id="scrapProductLabel" layoutX="85.0" layoutY="334.0" onMouseEntered="#scrapProductHover" onMouseExited="#scrapProductHoverExit" text="Scrap Product" textFill="WHITE">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>

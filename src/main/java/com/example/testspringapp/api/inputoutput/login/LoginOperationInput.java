@@ -11,7 +11,6 @@ import lombok.*;
 @Builder
 public class LoginOperationInput implements OperationInput {
 
-    @NotBlank(message = "TEST")
     private String username;
     private String password;
 
