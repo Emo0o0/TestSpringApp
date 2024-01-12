@@ -1,13 +1,17 @@
 #submit{
-    -fx-border-color: black;
+    /*-fx-border-color: black;*/
     -fx-border-radius: 5px;
     -fx-border-width: 2px;
-    -fx-background-color: #dedfc9;
+    /*-fx-background-color: #dedfc9;*/
+    -fx-background-color: #912525;
+    -fx-text-fill: white;
+    -fx-border-color: #912530;
 }
 #submit:hover{
-    -fx-background-color: #e7e8d9;
-
+    /*-fx-background-color: #e7e8d9;*/
+    -fx-background-color: #912600;
 }
 #submit:pressed{
-    -fx-background-color: #dedfc9;
+    /*-fx-background-color: #dedfc9;*/
+    -fx-background-color: #912525;
 }

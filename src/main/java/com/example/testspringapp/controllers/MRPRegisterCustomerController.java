@@ -1,19 +1,19 @@
 package com.example.testspringapp.controllers;
 
+import com.example.testspringapp.api.inputoutput.registercustomer.RegisterCustomerInput;
+import com.example.testspringapp.api.inputoutput.registercustomer.RegisterCustomerOperation;
 import com.example.testspringapp.configs.FxmlView;
 import com.example.testspringapp.configs.StageManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
+import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MRPRegisterProductToCustomerController {
+public class MRPRegisterCustomerController {
 
     @FXML
     private Label registerProductLabel;
@@ -30,22 +30,36 @@ public class MRPRegisterProductToCustomerController {
     @FXML
     private Label leaveLabel;
     @FXML
-    private ComboBox<String> chooseClient;
+    private TextField clientName;
     @FXML
-    private ComboBox<String> chooseProduct;
+    private TextField clientEmail;
+    @FXML
+    private TextField clientPhone;
     @FXML
     private Button submit;
     private final StageManager stageManager;
+    private final RegisterCustomerOperation registerCustomerOperation;
 
     @Autowired
     @Lazy
-    public MRPRegisterProductToCustomerController(StageManager stageManager) {
+    public MRPRegisterCustomerController(StageManager stageManager, RegisterCustomerOperation registerCustomerOperation) {
         this.stageManager = stageManager;
+        this.registerCustomerOperation = registerCustomerOperation;
     }
 
     @FXML
-    public void initialize(){
+    public void initialize() {
+    }
 
+
+
+    public void registerCustomer() {
+        RegisterCustomerInput input = RegisterCustomerInput.builder()
+                .name(clientName.getText())
+                .phone(clientPhone.getText())
+                .email(clientEmail.getText())
+                .build();
+        registerCustomerOperation.process(input);
     }
 
     public void registerProduct() {
@@ -56,12 +70,8 @@ public class MRPRegisterProductToCustomerController {
 
     }
 
-    public void registerCustomer() {
-        stageManager.switchScene(FxmlView.MRP_HOME_REGISTER_CUSTOMER);
-    }
-
     public void addProductToClientCard() {
-
+        stageManager.switchScene(FxmlView.MRP_REGISTER_PRODUCT_TO_CUSTOMER);
     }
 
     public void removeProductFromClientCard() {

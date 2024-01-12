@@ -1,6 +1,8 @@
 package com.example.testspringapp.api.inputoutput.registercustomer;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Getter
@@ -12,6 +14,6 @@ public class RegisterCustomerInput {
 
     private String name;
     private String phone;
-    @Email(message = "THIS IS NOT AN EMAIL")
+    @Email
     private String email;
 }

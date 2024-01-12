@@ -42,7 +42,7 @@ public enum FxmlView {
 
         @Override
         String getFxmlFile() {
-            return "MRPHomeRegisterProduct.fxml";
+            return "MRPRegisterProduct.fxml";
         }
     }, MRP_HOME_REGISTER_CUSTOMER{
         @Override
@@ -52,7 +52,7 @@ public enum FxmlView {
 
         @Override
         String getFxmlFile() {
-            return "MRPHomeRegisterCustomer.fxml";
+            return "MRPRegisterCustomer.fxml";
         }
     }, MRP_REGISTER_PRODUCT_TO_CUSTOMER {
         @Override

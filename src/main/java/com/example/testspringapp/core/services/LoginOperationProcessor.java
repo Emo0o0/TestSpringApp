@@ -11,26 +11,21 @@ import com.example.testspringapp.core.exceptions.login.WrongPasswordException;
 import com.example.testspringapp.persistence.entities.User;
 import com.example.testspringapp.persistence.entities.UserType;
 import com.example.testspringapp.persistence.repositories.UserRepository;
+import javafx.stage.Stage;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-//@RequiredArgsConstructor
+@RequiredArgsConstructor (onConstructor = @__(@Lazy))
 public class LoginOperationProcessor implements LoginOperation {
 
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final StageManager stageManager;
 
-    @Autowired
-    @Lazy
-    public LoginOperationProcessor(PasswordEncoder passwordEncoder, UserRepository userRepository, StageManager stageManager) {
-        this.passwordEncoder = passwordEncoder;
-        this.userRepository = userRepository;
-        this.stageManager = stageManager;
-    }
 
     @Override
     public LoginOperationOutput process(LoginOperationInput input) {

@@ -55,8 +55,11 @@ public class LoginController {
                 .password(password.getText())
                 .build();
 
-        if(loginOperation.process(input).getSuccess())
+        try {
+            loginOperation.process(input);
+        }catch (Exception e){
             invalidInfo.setVisible(true);
-
+            e.printStackTrace();
+        }
     }
 }

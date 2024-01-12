@@ -22,7 +22,7 @@ public class Customer {
     private String name;
     @Column
     private String phone;
-    @Column @Email
+    @Column (unique = true) @Email
     private String email;
     @Column
     @OneToMany
