@@ -35,7 +35,7 @@ public class TestSpringAppApplication extends Application {
     }
 
     protected void displayInitialScene() {
-        stageManager.switchScene(FxmlView.LOGIN);
+        stageManager.switchScene(FxmlView.MRP_HOME_REGISTER_CUSTOMER);
     }
 
     private ConfigurableApplicationContext bootstrapSpringApplicationContext() {

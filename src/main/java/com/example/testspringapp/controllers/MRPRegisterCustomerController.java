@@ -4,6 +4,9 @@ import com.example.testspringapp.api.inputoutput.registercustomer.RegisterCustom
 import com.example.testspringapp.api.inputoutput.registercustomer.RegisterCustomerOperation;
 import com.example.testspringapp.configs.FxmlView;
 import com.example.testspringapp.configs.StageManager;
+import com.example.testspringapp.core.exceptions.registercustomer.CustomerAlreadyExistsException;
+import com.example.testspringapp.core.exceptions.registercustomer.CustomerInvalidEmailException;
+import jakarta.validation.ConstraintViolationException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -37,6 +40,8 @@ public class MRPRegisterCustomerController {
     private TextField clientPhone;
     @FXML
     private Button submit;
+    @FXML
+    private Label formFillError;
     private final StageManager stageManager;
     private final RegisterCustomerOperation registerCustomerOperation;
 
@@ -54,12 +59,28 @@ public class MRPRegisterCustomerController {
 
 
     public void registerCustomer() {
+        formFillError.setVisible(false);
         RegisterCustomerInput input = RegisterCustomerInput.builder()
                 .name(clientName.getText())
                 .phone(clientPhone.getText())
                 .email(clientEmail.getText())
                 .build();
-        registerCustomerOperation.process(input);
+        try{
+            registerCustomerOperation.process(input);
+        }catch (CustomerAlreadyExistsException e){
+            e.printStackTrace();
+            formFillError.setText("This username is already taken");
+        }catch(CustomerInvalidEmailException e){
+            e.printStackTrace();
+            formFillError.setText("Please enter a valid email");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            formFillError.setText("Please fill out the form");
+        }
+        finally {
+            formFillError.setVisible(true);
+        }
     }
 
     public void registerProduct() {

@@ -8,7 +8,7 @@
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testspringapp.controllers.MRPRegisterProductController">
 
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#912525" height="700.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="300.0" />
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dedfc9" height="700.0" layoutX="300.0" stroke="#d11414" strokeType="INSIDE" strokeWidth="0.0" width="900.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dedfc9" height="700.0" layoutX="300.0" stroke="RED" strokeType="INSIDE" strokeWidth="0.0" width="900.0" />
 
     <Label fx:id="registerProductLabel" layoutX="72.0" layoutY="46.0" text="Register Product" textFill="WHITE" underline="true">
         <font>
@@ -22,7 +22,7 @@
         </font>
     </Label>
 
-    <Label fx:id="addProductsLabel" layoutX="64.0" layoutY="149.0" onMouseClicked="#addProductToClientCard"  prefHeight="64.0" prefWidth="174.0" stylesheets="@SideBarHover.css" text="Register Product To Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Label fx:id="addProductsLabel" layoutX="64.0" layoutY="149.0" onMouseClicked="#addProductToClientCard" prefHeight="64.0" prefWidth="174.0" stylesheets="@SideBarHover.css" text="Register Product To Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
@@ -52,11 +52,6 @@
         </font>
     </Label>
 
-    <TextField alignment="TOP_LEFT" layoutX="415.0" layoutY="254.0" prefHeight="171.0" prefWidth="331.0">
-      <font>
-         <Font size="18.0" />
-      </font></TextField>
-
     <Label layoutX="420.0" layoutY="201.0" text="Product Description">
         <font>
             <Font name="System Bold" size="36.0" />
@@ -75,14 +70,14 @@
         </font>
     </Label>
 
-    <TextField layoutX="648.0" layoutY="461.0">
+    <TextField fx:id="productAmortization" layoutX="648.0" layoutY="461.0">
       <font>
          <Font size="18.0" />
       </font></TextField>
 
     <ComboBox fx:id="productTypes" layoutX="853.0" layoutY="267.0" prefHeight="39.0" prefWidth="224.0" />
 
-    <Button fx:id="submit" layoutX="695.0" layoutY="559.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" stylesheets="@button.css" text="Submit">
+    <Button fx:id="submit" layoutX="695.0" layoutY="586.0" mnemonicParsing="false" onMousePressed="#registerProductButtonSubmit" prefHeight="65.0" prefWidth="146.0" stylesheets="@button.css" text="Submit">
         <font>
             <Font name="System Bold" size="29.0" />
         </font>
@@ -94,13 +89,31 @@
         </font>
     </Label>
 
-    <TextField layoutX="647.0" layoutY="134.0" prefHeight="26.0" prefWidth="226.0">
+    <TextField fx:id="productTitle" layoutX="647.0" layoutY="134.0" prefHeight="26.0" prefWidth="226.0">
       <font>
          <Font size="18.0" />
       </font></TextField>
+
    <Label layoutX="594.0" layoutY="20.0" text="Register a Product">
       <font>
          <Font name="System Bold" size="36.0" />
+      </font>
+   </Label>
+
+   <TextArea fx:id="productDescription" layoutX="415.0" layoutY="254.0" prefHeight="171.0" prefWidth="331.0" AnchorPane.bottomAnchor="275.0" AnchorPane.leftAnchor="415.0" AnchorPane.rightAnchor="454.0" AnchorPane.topAnchor="254.0">
+    <font>
+        <Font size="18.0" />
+    </font>
+   </TextArea>
+
+   <Label fx:id="invalidInformation" layoutX="589.0" layoutY="516.0" text="Invalid Info" textFill="RED" visible="false">
+      <font>
+         <Font name="System Bold" size="36.0" />
+      </font>
+   </Label>
+   <Label fx:id="amortizationValue" layoutX="880.0" layoutY="464.0" text="0 - 100">
+      <font>
+         <Font name="System Bold" size="24.0" />
       </font>
    </Label>
 

@@ -3,10 +3,7 @@ package com.example.testspringapp.core.services;
 import com.example.testspringapp.api.inputoutput.registercustomer.RegisterCustomerInput;
 import com.example.testspringapp.api.inputoutput.registercustomer.RegisterCustomerOperation;
 import com.example.testspringapp.api.inputoutput.registercustomer.RegisterCustomerOutput;
-import com.example.testspringapp.core.exceptions.registercustomer.CustomerAlreadyExistsException;
-import com.example.testspringapp.core.exceptions.registercustomer.CustomerBlankEmailException;
-import com.example.testspringapp.core.exceptions.registercustomer.CustomerBlankNameException;
-import com.example.testspringapp.core.exceptions.registercustomer.CustomerBlankPhoneException;
+import com.example.testspringapp.core.exceptions.registercustomer.*;
 import com.example.testspringapp.persistence.entities.Customer;
 import com.example.testspringapp.persistence.repositories.CustomerRepository;
 import jakarta.validation.Valid;
@@ -24,9 +21,6 @@ public class RegisterCustomerOperationProcessor implements RegisterCustomerOpera
 
         validation(registerCustomerInput);
 
-        if (customerRepository.existsByEmail(registerCustomerInput.getEmail())) {
-            throw new CustomerAlreadyExistsException("This customer is already registered");
-        }
         Customer customer = Customer.builder()
                 .name(registerCustomerInput.getName())
                 .phone(registerCustomerInput.getPhone())
@@ -54,6 +48,12 @@ public class RegisterCustomerOperationProcessor implements RegisterCustomerOpera
         }
         if(input.getPhone().isBlank()){
             throw new CustomerBlankPhoneException("Phone cannot be left blank");
+        }
+        if(!input.getEmail().contains("@")){
+            throw new CustomerInvalidEmailException("Please enter a valid email");
+        }
+        if (customerRepository.existsByEmail(input.getEmail())) {
+            throw new CustomerAlreadyExistsException("This customer is already registered");
         }
         return true;
     }

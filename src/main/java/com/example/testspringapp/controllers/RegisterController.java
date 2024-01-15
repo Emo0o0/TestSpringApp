@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -50,7 +51,7 @@ public class RegisterController {
     public void register() {
 
         success.setVisible(false);
-        invalidInfo.setVisible(false);
+        //invalidInfo.setVisible(false);
 
         RegisterMRPInput input = RegisterMRPInput.builder()
                 .username(username.getText())
@@ -60,11 +61,17 @@ public class RegisterController {
 
         try {
             registerMRPOperation.process(input);
-            success.setVisible(true);
+            success.setTextFill(Color.LIME);
+            success.setText("Successful Registration");
+            //success.setVisible(true);
         }catch (Exception e){
             e.printStackTrace();
-            invalidInfo.setVisible(true);
+            success.setTextFill(Color.web("#f70909"));
+            success.setText("Invalid Information");
+            //success.setVisible(true);
+            //invalidInfo.setVisible(true);
         }
+        success.setVisible(true);
     }
 
     public void returnToLogin(){

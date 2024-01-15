@@ -1,11 +1,16 @@
 package com.example.testspringapp.controllers;
 
+import com.example.testspringapp.api.inputoutput.registerproduct.RegisterProductInput;
+import com.example.testspringapp.api.inputoutput.registerproduct.RegisterProductOperation;
 import com.example.testspringapp.configs.FxmlView;
 import com.example.testspringapp.configs.StageManager;
+import com.example.testspringapp.core.exceptions.registerproduct.ProductBlankDescriptionException;
+import com.example.testspringapp.core.exceptions.registerproduct.ProductBlankTitleException;
+import com.example.testspringapp.core.exceptions.registerproduct.ProductInvalidAmortizationValueException;
+import com.example.testspringapp.persistence.entities.ProductType;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
@@ -13,43 +18,41 @@ import org.springframework.stereotype.Component;
 @Component
 public class MRPRegisterProductController {
 
-
-    @FXML
-    private Label registerProductLabel;
-    @FXML
-    private Label scrappingCriteriaLabel;
-    @FXML
-    private Label registerCustomerLabel;
-    @FXML
-    private Label addProductsLabel;
-    @FXML
-    private Label removeProductsLabel;
-    @FXML
-    private Label scrapProductLabel;
-    @FXML
-    private Label leaveLabel;
     @FXML
     private ComboBox<String> productTypes;
     @FXML
+    private TextField productTitle;
+    @FXML
+    private TextArea productDescription;
+    @FXML
+    private TextField productAmortization;
+    @FXML
+    private Label invalidInformation;
+    @FXML
+    private Label amortizationValue;
+    @FXML
     private Button submit;
     private final StageManager stageManager;
+    private final RegisterProductOperation registerProductOperation;
 
     @Autowired
     @Lazy
-    public MRPRegisterProductController(StageManager stageManager) {
+    public MRPRegisterProductController(StageManager stageManager, RegisterProductOperation registerProductOperation) {
         this.stageManager = stageManager;
+        this.registerProductOperation = registerProductOperation;
     }
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         showProductTypes();
     }
 
 
-    public void showProductTypes(){
+    public void showProductTypes() {
         productTypes.getItems().add("DMA");
         productTypes.getItems().add("MA");
         productTypes.setVisibleRowCount(2);
+        productTypes.getSelectionModel().selectFirst();
     }
 
     public void setScrappingCriteria() {
@@ -76,5 +79,33 @@ public class MRPRegisterProductController {
         stageManager.switchScene(FxmlView.LOGIN);
     }
 
+    public void registerProductButtonSubmit() {
+
+        amortizationValue.setTextFill(Color.BLACK);
+        invalidInformation.setVisible(false);
+
+        RegisterProductInput input = RegisterProductInput.builder()
+                .title(productTitle.getText())
+                .description(productDescription.getText())
+                .productType(ProductType.valueOf(productTypes.getSelectionModel().getSelectedItem()))
+                .amortization(productAmortization.getText())
+                .build();
+
+        try {
+            registerProductOperation.process(input);
+        }
+        catch(ProductInvalidAmortizationValueException e){
+            e.printStackTrace();
+            invalidInformation.setText("Invalid amortization value");
+            amortizationValue.setTextFill(Color.RED);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            invalidInformation.setText("Please fill out all fields");
+        }
+        finally {
+            invalidInformation.setVisible(true);
+        }
+    }
 
 }

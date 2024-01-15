@@ -10,7 +10,7 @@
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#912525" height="700.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="300.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dedfc9" height="700.0" layoutX="300.0" stroke="#d11414" strokeType="INSIDE" strokeWidth="0.0" width="900.0" />
 
-    <Label fx:id="registerProductLabel" layoutX="72.0" layoutY="46.0" onMouseClicked="#registerProduct"  stylesheets="@SideBarHover.css" text="Register Product" textFill="WHITE">
+    <Label fx:id="registerProductLabel" layoutX="72.0" layoutY="46.0" onMouseClicked="#registerProduct" stylesheets="@SideBarHover.css" text="Register Product" textFill="WHITE">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
@@ -90,6 +90,11 @@
 
 
     <Label layoutX="527.0" layoutY="113.0" text="Customer Registration Form">
+      <font>
+         <Font name="System Bold" size="36.0" />
+      </font>
+   </Label>
+   <Label fx:id="formFillError" layoutX="530.0" layoutY="438.0" text="Please fill out the form" textFill="#fc0000" visible="false">
       <font>
          <Font name="System Bold" size="36.0" />
       </font>
