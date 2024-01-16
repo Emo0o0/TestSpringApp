@@ -52,29 +52,15 @@
         </font>
     </Label>
 
-    <Label layoutX="479.0" layoutY="309.0" text="Choose Product">
-        <font>
-            <Font name="System Bold" size="36.0" />
-        </font>
-    </Label>
-
-    <ComboBox fx:id="chooseClient" editable="true" layoutX="765.0" layoutY="231.0" prefHeight="30.0" prefWidth="208.0" />
-    <ComboBox fx:id="chooseProduct" editable="true" layoutX="765.0" layoutY="321.0" prefHeight="30.0" prefWidth="208.0" />
-
-    <Button fx:id="submit" layoutX="648.0" layoutY="422.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="150.0" stylesheets="@button.css" text="Submit">
+    <Button fx:id="submit" layoutX="675.0" layoutY="603.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="150.0" stylesheets="@button.css" text="Submit">
         <font>
             <Font name="System Bold" size="29.0" />
         </font></Button>
-
-    <Label layoutX="491.0" layoutY="218.0" text="Choose Client">
-        <font>
-            <Font name="System Bold" size="36.0" />
-        </font>
-    </Label>
-   <Label layoutX="451.0" layoutY="98.0" text="Register Product To Customer Card">
+   <Label layoutX="451.0" layoutY="26.0" text="Register Product To Customer Card">
       <font>
          <Font name="System Bold" size="36.0" />
       </font>
    </Label>
+   <ListView fx:id="products" layoutX="334.0" layoutY="188.0" prefHeight="392.0" prefWidth="807.0" stylesheets="@listview.css" />
 
 </AnchorPane>

@@ -14,7 +14,8 @@ public class RegisterProductOutput implements OperationResult {
     private long id;
     private String title;
     private String description;
-    private ProductType productType;
-    private Double amortization;
+    private String productType;
+    private String amortization;
+    private String scrappingCriteria;
     private boolean success;
 }

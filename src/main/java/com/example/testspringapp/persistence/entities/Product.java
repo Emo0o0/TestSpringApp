@@ -23,7 +23,12 @@ public class Product {
     private ProductType productType;
     @Column
     private Double amortization;
+    @Column
+    private Integer scrappingCriteria;
 
 
-
+    @Override
+    public String toString() {
+        return String.format("%-30s %-10s %-10.2f %-10d", title, productType.toString(), amortization, scrappingCriteria);
+    }
 }

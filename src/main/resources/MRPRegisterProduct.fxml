@@ -64,20 +64,20 @@
         </font>
     </Label>
 
-    <Label layoutX="415.0" layoutY="454.0" text="Amortization">
+    <Label layoutX="415.0" layoutY="437.0" text="Amortization">
         <font>
             <Font name="System Bold" size="36.0" />
         </font>
     </Label>
 
-    <TextField fx:id="productAmortization" layoutX="648.0" layoutY="461.0">
+    <TextField fx:id="productAmortization" alignment="CENTER_RIGHT" layoutX="648.0" layoutY="444.0">
       <font>
          <Font size="18.0" />
       </font></TextField>
 
     <ComboBox fx:id="productTypes" layoutX="853.0" layoutY="267.0" prefHeight="39.0" prefWidth="224.0" />
 
-    <Button fx:id="submit" layoutX="695.0" layoutY="586.0" mnemonicParsing="false" onMousePressed="#registerProductButtonSubmit" prefHeight="65.0" prefWidth="146.0" stylesheets="@button.css" text="Submit">
+    <Button fx:id="submit" layoutX="673.0" layoutY="619.0" mnemonicParsing="false" onMousePressed="#registerProductButtonSubmit" prefHeight="65.0" prefWidth="146.0" stylesheets="@button.css" text="Submit">
         <font>
             <Font name="System Bold" size="29.0" />
         </font>
@@ -106,12 +106,27 @@
     </font>
    </TextArea>
 
-   <Label fx:id="invalidInformation" layoutX="589.0" layoutY="516.0" text="Invalid Info" textFill="RED" visible="false">
+   <Label fx:id="invalidInformation" layoutX="535.0" layoutY="561.0" text="Invalid Info" textFill="RED" visible="false">
       <font>
          <Font name="System Bold" size="36.0" />
       </font>
    </Label>
-   <Label fx:id="amortizationValue" layoutX="880.0" layoutY="464.0" text="0 - 100">
+   <Label fx:id="amortizationValue" layoutX="880.0" layoutY="447.0" text="0 - 100">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Label>
+   <Label layoutX="334.0" layoutY="503.0" text="Scrapping Criteria">
+      <font>
+         <Font name="System Bold" size="36.0" />
+      </font>
+   </Label>
+   <TextField fx:id="scrappingCriteria" alignment="CENTER_RIGHT" layoutX="648.0" layoutY="510.0">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </TextField>
+   <Label layoutX="878.0" layoutY="512.0" text="years">
       <font>
          <Font name="System Bold" size="24.0" />
       </font>

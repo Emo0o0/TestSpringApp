@@ -3,11 +3,9 @@ package com.example.testspringapp.core.services;
 import com.example.testspringapp.api.inputoutput.registerproduct.RegisterProductInput;
 import com.example.testspringapp.api.inputoutput.registerproduct.RegisterProductOperation;
 import com.example.testspringapp.api.inputoutput.registerproduct.RegisterProductOutput;
-import com.example.testspringapp.core.exceptions.registerproduct.ProductBlankAmortizationException;
-import com.example.testspringapp.core.exceptions.registerproduct.ProductBlankDescriptionException;
-import com.example.testspringapp.core.exceptions.registerproduct.ProductBlankTitleException;
-import com.example.testspringapp.core.exceptions.registerproduct.ProductInvalidAmortizationValueException;
+import com.example.testspringapp.core.exceptions.registerproduct.*;
 import com.example.testspringapp.persistence.entities.Product;
+import com.example.testspringapp.persistence.entities.ProductType;
 import com.example.testspringapp.persistence.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +25,9 @@ public class RegisterProductOperationProcessor implements RegisterProductOperati
         Product product = Product.builder()
                 .title(registerProductInput.getTitle())
                 .description(registerProductInput.getDescription())
-                .productType(registerProductInput.getProductType())
+                .productType(ProductType.valueOf(registerProductInput.getProductType()))
                 .amortization(Double.parseDouble(registerProductInput.getAmortization()))
+                .scrappingCriteria(Integer.parseInt(registerProductInput.getScrappingCriteria()))
                 .build();
 
         productRepository.save(product);
@@ -37,8 +36,9 @@ public class RegisterProductOperationProcessor implements RegisterProductOperati
                 .id(product.getId())
                 .title(product.getTitle())
                 .description(product.getDescription())
-                .productType(product.getProductType())
-                .amortization(product.getAmortization())
+                .productType(product.getProductType().toString())
+                .amortization(product.getAmortization().toString())
+                .scrappingCriteria(product.getScrappingCriteria().toString())
                 .success(true)
                 .build();
     }
@@ -53,9 +53,28 @@ public class RegisterProductOperationProcessor implements RegisterProductOperati
         if(input.getAmortization().isBlank()){
             throw new ProductBlankAmortizationException("Please enter an amortization value");
         }
+        if(input.getScrappingCriteria().isBlank()){
+            throw new ProductBlankScrappingCriteriaException("Please enter scrapping criteria value");
+        }
+
+        try{
+            Double.valueOf(input.getAmortization());
+        }catch(Exception e){
+            throw new ProductInvalidAmortizationValueException("Invalid amortization value");
+        }
         if(Double.parseDouble(input.getAmortization())<0 || Double.parseDouble(input.getAmortization())>100){
             throw new ProductInvalidAmortizationValueException("Amortization value should be between 0 and 100");
         }
+
+        try{
+            Double.valueOf(input.getScrappingCriteria());
+        }catch (Exception e){
+            throw new ProductInvalidScrappingCriteriaValueException("Invalid scrapping criteria. Enter years");
+        }
+        if(Double.valueOf(input.getScrappingCriteria())<1){
+            throw new ProductInvalidScrappingCriteriaValueException("Scrapping criteria cannot be under 1");
+        }
+
         return true;
     }
 }

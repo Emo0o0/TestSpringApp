@@ -59,7 +59,10 @@ public class MRPRegisterCustomerController {
 
 
     public void registerCustomer() {
+
         formFillError.setVisible(false);
+        formFillError.setText("");
+
         RegisterCustomerInput input = RegisterCustomerInput.builder()
                 .name(clientName.getText())
                 .phone(clientPhone.getText())

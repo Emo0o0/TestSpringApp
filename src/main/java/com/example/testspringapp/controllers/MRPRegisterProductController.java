@@ -7,6 +7,7 @@ import com.example.testspringapp.configs.StageManager;
 import com.example.testspringapp.core.exceptions.registerproduct.ProductBlankDescriptionException;
 import com.example.testspringapp.core.exceptions.registerproduct.ProductBlankTitleException;
 import com.example.testspringapp.core.exceptions.registerproduct.ProductInvalidAmortizationValueException;
+import com.example.testspringapp.core.exceptions.registerproduct.ProductInvalidScrappingCriteriaValueException;
 import com.example.testspringapp.persistence.entities.ProductType;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -26,6 +27,8 @@ public class MRPRegisterProductController {
     private TextArea productDescription;
     @FXML
     private TextField productAmortization;
+    @FXML
+    private TextField scrappingCriteria;
     @FXML
     private Label invalidInformation;
     @FXML
@@ -82,13 +85,16 @@ public class MRPRegisterProductController {
     public void registerProductButtonSubmit() {
 
         amortizationValue.setTextFill(Color.BLACK);
+
         invalidInformation.setVisible(false);
+        invalidInformation.setText("");
 
         RegisterProductInput input = RegisterProductInput.builder()
                 .title(productTitle.getText())
                 .description(productDescription.getText())
-                .productType(ProductType.valueOf(productTypes.getSelectionModel().getSelectedItem()))
+                .productType(productTypes.getSelectionModel().getSelectedItem())
                 .amortization(productAmortization.getText())
+                .scrappingCriteria(scrappingCriteria.getText())
                 .build();
 
         try {
@@ -98,6 +104,10 @@ public class MRPRegisterProductController {
             e.printStackTrace();
             invalidInformation.setText("Invalid amortization value");
             amortizationValue.setTextFill(Color.RED);
+        }
+        catch(ProductInvalidScrappingCriteriaValueException e){
+            e.printStackTrace();
+            invalidInformation.setText("Invalid scrapping criteria");
         }
         catch (Exception e){
             e.printStackTrace();
