@@ -51,7 +51,6 @@ public class RegisterController {
     public void register() {
 
         success.setVisible(false);
-        //invalidInfo.setVisible(false);
 
         RegisterMRPInput input = RegisterMRPInput.builder()
                 .username(username.getText())
@@ -63,13 +62,10 @@ public class RegisterController {
             registerMRPOperation.process(input);
             success.setTextFill(Color.LIME);
             success.setText("Successful Registration");
-            //success.setVisible(true);
         }catch (Exception e){
             e.printStackTrace();
             success.setTextFill(Color.web("#f70909"));
             success.setText("Invalid Information");
-            //success.setVisible(true);
-            //invalidInfo.setVisible(true);
         }
         success.setVisible(true);
     }

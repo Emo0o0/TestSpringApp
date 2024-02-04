@@ -27,8 +27,10 @@ public class Product {
     private Integer scrappingCriteria;
 
 
+
     @Override
     public String toString() {
-        return String.format("%-30s %-10s %-10.2f %-10d", title, productType.toString(), amortization, scrappingCriteria);
+        //return String.format("%-30s %-10s %-10.2f %-10d", title, productType.toString(), amortization, scrappingCriteria);
+        return title;
     }
 }

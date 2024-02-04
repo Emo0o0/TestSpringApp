@@ -1,56 +1,80 @@
 package com.example.testspringapp.controllers;
 
+import com.example.testspringapp.api.inputoutput.registerproducttocustomer.RegisterProductToCustomerInput;
+import com.example.testspringapp.api.inputoutput.registerproducttocustomer.RegisterProductToCustomerOperation;
+import com.example.testspringapp.api.inputoutput.registerproducttocustomer.searchcustomer.SearchCustomerInput;
+import com.example.testspringapp.api.inputoutput.registerproducttocustomer.searchcustomer.SearchCustomerOperation;
+import com.example.testspringapp.api.inputoutput.registerproducttocustomer.searchproduct.SearchProductInput;
+import com.example.testspringapp.api.inputoutput.registerproducttocustomer.searchproduct.SearchProductOperation;
 import com.example.testspringapp.configs.FxmlView;
 import com.example.testspringapp.configs.StageManager;
+import com.example.testspringapp.persistence.entities.Customer;
 import com.example.testspringapp.persistence.entities.Product;
+import com.example.testspringapp.persistence.repositories.CustomerRepository;
 import com.example.testspringapp.persistence.repositories.ProductRepository;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Component
 public class MRPRegisterProductToCustomerController {
 
     @FXML
-    private ComboBox<String> chooseClient;
-    @FXML
-    private ComboBox<String> chooseProduct;
+    private TextArea productDescription;
     @FXML
     private Button submit;
     @FXML
     private ListView<Product> products;
+    private final Set<Product> allProducts = new HashSet<>();
+    @FXML
+    private ListView<Customer> customers;
+    private final Set<Customer> allCustomers = new HashSet<>();
+    @FXML
+    private TextField productSearch;
+    @FXML
+    private TextField customerSearch;
     private final StageManager stageManager;
     private final ProductRepository productRepository;
+    private final CustomerRepository customerRepository;
+    private final RegisterProductToCustomerOperation registerProductToCustomerOperation;
+    private final SearchProductOperation searchProductOperation;
+    private final SearchCustomerOperation searchCustomerOperation;
 
     @Autowired
     @Lazy
-    public MRPRegisterProductToCustomerController(StageManager stageManager, ProductRepository productRepository) {
+    public MRPRegisterProductToCustomerController(StageManager stageManager, ProductRepository productRepository, CustomerRepository customerRepository, RegisterProductToCustomerOperation registerProductToCustomerOperation, SearchProductOperation searchProductOperation, SearchCustomerOperation searchCustomerOperation) {
         this.stageManager = stageManager;
         this.productRepository = productRepository;
+        this.customerRepository = customerRepository;
+        this.registerProductToCustomerOperation = registerProductToCustomerOperation;
+        this.searchProductOperation = searchProductOperation;
+        this.searchCustomerOperation = searchCustomerOperation;
     }
 
     @FXML
     public void initialize() {
-        List<Product> productList = productRepository.findAll();
-//        products.getItems().addAll(productRepository.findAll());
-        for (Product p : productList)
-            products.getItems().add(p);
-        products.getSelectionModel().selectAll();
+
+        products.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        products.getItems().addAll(productRepository.findAll());
+        if (allProducts.isEmpty())                      //TODO
+            allProducts.addAll(products.getItems());
+
+        customers.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        customers.getItems().addAll(customerRepository.findAll());
+        if (allCustomers.isEmpty())
+            allCustomers.addAll(customers.getItems());
+
     }
 
     public void registerProduct() {
         stageManager.switchScene(FxmlView.MRP_HOME_REGISTER_PRODUCT);
     }
 
-    public void setScrappingCriteria() {
-
-    }
 
     public void registerCustomer() {
         stageManager.switchScene(FxmlView.MRP_HOME_REGISTER_CUSTOMER);
@@ -70,6 +94,46 @@ public class MRPRegisterProductToCustomerController {
 
     public void leave() {
         stageManager.switchScene(FxmlView.LOGIN);
+    }
+
+    public void registerProductToCustomerButtonClick() {
+
+        RegisterProductToCustomerInput input = RegisterProductToCustomerInput.builder()
+                .customers(new HashSet<>(customers.getSelectionModel().getSelectedItems()))
+                .products(new HashSet<>(products.getSelectionModel().getSelectedItems()))
+                .build();
+
+        registerProductToCustomerOperation.process(input);
+    }
+
+    public void listViewChooseItem() {
+
+        productDescription.setText("");
+
+        StringBuilder sb = new StringBuilder();
+        for (Product p : products.getSelectionModel().getSelectedItems()) {
+            sb.append(p.getDescription())
+                    .append("\n");
+        }
+        productDescription.setText(sb.toString());
+    }
+
+    public void filterCustomers() {
+        this.customers.getItems().clear();
+        SearchCustomerInput input = SearchCustomerInput.builder()
+                .customers(this.allCustomers)
+                .searchWord(customerSearch.getText())
+                .build();
+        this.customers.getItems().addAll(searchCustomerOperation.process(input).getFilteredCustomers());
+    }
+
+    public void filterProducts() {
+        this.products.getItems().clear();
+        SearchProductInput input = SearchProductInput.builder()
+                .products(this.allProducts)
+                .searchWord(productSearch.getText())
+                .build();
+        this.products.getItems().addAll(searchProductOperation.process(input).getFilteredProducts());
     }
 
 }

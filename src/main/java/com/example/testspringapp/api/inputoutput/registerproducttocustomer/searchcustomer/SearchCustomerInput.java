@@ -1,8 +1,7 @@
-package com.example.testspringapp.api.inputoutput.registerproducttocustomer;
+package com.example.testspringapp.api.inputoutput.registerproducttocustomer.searchcustomer;
 
 import com.example.testspringapp.api.base.OperationInput;
 import com.example.testspringapp.persistence.entities.Customer;
-import com.example.testspringapp.persistence.entities.Product;
 import lombok.*;
 
 import java.util.Set;
@@ -12,10 +11,9 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class RegisterProductToCustomerInput implements OperationInput {
+public class SearchCustomerInput implements OperationInput {
 
-
-    private Set<Product> products;
     private Set<Customer> customers;
+    private String searchWord;
 
 }

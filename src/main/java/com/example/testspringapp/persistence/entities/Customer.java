@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -25,8 +26,17 @@ public class Customer {
     @Column (unique = true) @Email
     private String email;
     @Column
-    @OneToMany
+    @ManyToMany
     private Set<Product> products;
 
 
+    public Set<Product> getProducts(){
+        return new HashSet<>(products);
+    }
+    public boolean addProduct(Product product){
+        return products.add(product);
+    }
+    public String toString(){
+        return email;
+    }
 }

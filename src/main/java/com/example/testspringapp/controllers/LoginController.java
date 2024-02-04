@@ -50,6 +50,13 @@ public class LoginController {
 
     public void login() {
 
+        //User user=User.builder()
+        //        .userType(UserType.ADMINISTRATOR)
+        //        .username("admin")
+        //        .password(passwordEncoder.encode("123"))
+        //        .build();
+        //userRepository.save(user);
+
         LoginOperationInput input = LoginOperationInput.builder()
                 .username(username.getText())
                 .password(password.getText())

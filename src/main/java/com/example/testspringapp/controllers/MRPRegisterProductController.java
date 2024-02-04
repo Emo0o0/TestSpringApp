@@ -74,9 +74,6 @@ public class MRPRegisterProductController {
 
     }
 
-    public void scrapProduct() {
-
-    }
 
     public void leave() {
         stageManager.switchScene(FxmlView.LOGIN);

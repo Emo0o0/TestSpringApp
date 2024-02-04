@@ -90,9 +90,6 @@ public class MRPRegisterCustomerController {
         stageManager.switchScene(FxmlView.MRP_HOME_REGISTER_PRODUCT);
     }
 
-    public void setScrappingCriteria() {
-
-    }
 
     public void addProductToClientCard() {
         stageManager.switchScene(FxmlView.MRP_REGISTER_PRODUCT_TO_CUSTOMER);
