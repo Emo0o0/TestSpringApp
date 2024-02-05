@@ -1,0 +1,6 @@
+package com.example.testspringapp.api.inputoutput.unregisterproductfromcustomer;
+
+import com.example.testspringapp.api.base.OperationProcessor;
+
+public interface UnregisterProductFromCustomerOperation extends OperationProcessor<UnregisterProductFromCustomerInput,UnregisterProductFromCustomerOutput> {
+}

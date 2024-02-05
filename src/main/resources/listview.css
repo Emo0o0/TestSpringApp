@@ -1,6 +1,10 @@
-#products{
-    -fx-font-size: 25;
-}
-#customers{
+/*#products{*/
+/*    -fx-font-size: 25;*/
+/*}*/
+/*#customers{*/
+/*    -fx-font-size: 25;*/
+/*}*/
+
+.list-view{
     -fx-font-size: 25;
 }

@@ -64,6 +64,46 @@ public enum FxmlView {
         String getFxmlFile() {
             return "MRPRegisterProductToCustomer.fxml";
         }
+    }, MRP_UNREGISTER_PRODUCT_FROM_CUSTOMER{
+        @Override
+        String getTitle() {
+            return getStringFromResourceBundle("MRPUnregisterProductFromCustomerController.title");
+        }
+
+        @Override
+        String getFxmlFile() {
+            return "MRPUnregisterProductFromCustomer.fxml";
+        }
+    }, MRP_SCRAP_PRODUCTS{
+        @Override
+        String getTitle() {
+            return getStringFromResourceBundle("MRPScrapProducts.title");
+        }
+
+        @Override
+        String getFxmlFile() {
+            return "MRPScrapProducts.fxml";
+        }
+    }, MRP_VIEW_RECORDS_CLIENTS_AND_PRODUCTS {
+        @Override
+        String getTitle() {
+            return getStringFromResourceBundle("MRPRecordsClientsAndProducts.title");
+        }
+
+        @Override
+        String getFxmlFile() {
+            return "MRPRecordsClientsAndProducts.fxml";
+        }
+    }, MRP_VIEW_RECORDS_ALL_PRODUCTS{
+        @Override
+        String getTitle() {
+            return getStringFromResourceBundle("MRPRecordsAllProducts.title");
+        }
+
+        @Override
+        String getFxmlFile() {
+            return  "MRPRecordsAllProducts.fxml";
+        }
     };
 
     abstract String getTitle();

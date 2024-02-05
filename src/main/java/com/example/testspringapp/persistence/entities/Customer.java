@@ -25,16 +25,23 @@ public class Customer {
     private String phone;
     @Column (unique = true) @Email
     private String email;
-    @Column
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "customers_products",
+            joinColumns = {@JoinColumn(name="customer_id")},
+            inverseJoinColumns = {@JoinColumn(name = "product_id")}
+    )
     private Set<Product> products;
 
 
-    public Set<Product> getProducts(){
+    /*public Set<Product> getProducts(){
         return new HashSet<>(products);
-    }
+    }*/
     public boolean addProduct(Product product){
         return products.add(product);
+    }
+    public boolean removeProduct(Product product){
+        return products.remove(product);
     }
     public String toString(){
         return email;

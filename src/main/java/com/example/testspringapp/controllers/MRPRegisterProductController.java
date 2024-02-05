@@ -4,11 +4,8 @@ import com.example.testspringapp.api.inputoutput.registerproduct.RegisterProduct
 import com.example.testspringapp.api.inputoutput.registerproduct.RegisterProductOperation;
 import com.example.testspringapp.configs.FxmlView;
 import com.example.testspringapp.configs.StageManager;
-import com.example.testspringapp.core.exceptions.registerproduct.ProductBlankDescriptionException;
-import com.example.testspringapp.core.exceptions.registerproduct.ProductBlankTitleException;
 import com.example.testspringapp.core.exceptions.registerproduct.ProductInvalidAmortizationValueException;
 import com.example.testspringapp.core.exceptions.registerproduct.ProductInvalidScrappingCriteriaValueException;
-import com.example.testspringapp.persistence.entities.ProductType;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
@@ -33,6 +30,8 @@ public class MRPRegisterProductController {
     private Label invalidInformation;
     @FXML
     private Label amortizationValue;
+    @FXML
+    private Label scrapValue;
     @FXML
     private Button submit;
     private final StageManager stageManager;
@@ -71,9 +70,15 @@ public class MRPRegisterProductController {
     }
 
     public void removeProductFromClientCard() {
-
+        stageManager.switchScene(FxmlView.MRP_UNREGISTER_PRODUCT_FROM_CUSTOMER);
     }
 
+    public void viewRecords(){
+        stageManager.switchScene(FxmlView.MRP_VIEW_RECORDS_CLIENTS_AND_PRODUCTS);
+    }
+    public void scrapProduct() {
+        stageManager.switchScene(FxmlView.MRP_SCRAP_PRODUCTS);
+    }
 
     public void leave() {
         stageManager.switchScene(FxmlView.LOGIN);
@@ -82,9 +87,11 @@ public class MRPRegisterProductController {
     public void registerProductButtonSubmit() {
 
         amortizationValue.setTextFill(Color.BLACK);
+        scrapValue.setTextFill(Color.BLACK);
 
         invalidInformation.setVisible(false);
         invalidInformation.setText("");
+        invalidInformation.setTextFill(Color.RED);
 
         RegisterProductInput input = RegisterProductInput.builder()
                 .title(productTitle.getText())
@@ -96,6 +103,8 @@ public class MRPRegisterProductController {
 
         try {
             registerProductOperation.process(input);
+            invalidInformation.setTextFill(Color.GREEN);
+            invalidInformation.setText("Product "+productTitle.getText()+" registered");
         }
         catch(ProductInvalidAmortizationValueException e){
             e.printStackTrace();
@@ -105,6 +114,7 @@ public class MRPRegisterProductController {
         catch(ProductInvalidScrappingCriteriaValueException e){
             e.printStackTrace();
             invalidInformation.setText("Invalid scrapping criteria");
+            scrapValue.setTextFill(Color.RED);
         }
         catch (Exception e){
             e.printStackTrace();

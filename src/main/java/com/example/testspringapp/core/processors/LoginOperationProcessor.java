@@ -1,4 +1,4 @@
-package com.example.testspringapp.core.services;
+package com.example.testspringapp.core.processors;
 
 import com.example.testspringapp.api.inputoutput.login.LoginOperation;
 import com.example.testspringapp.api.inputoutput.login.LoginOperationInput;
@@ -11,9 +11,7 @@ import com.example.testspringapp.core.exceptions.login.WrongPasswordException;
 import com.example.testspringapp.persistence.entities.User;
 import com.example.testspringapp.persistence.entities.UserType;
 import com.example.testspringapp.persistence.repositories.UserRepository;
-import javafx.stage.Stage;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

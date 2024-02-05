@@ -1,4 +1,4 @@
-package com.example.testspringapp.core.services;
+package com.example.testspringapp.core.processors;
 
 import com.example.testspringapp.api.inputoutput.registerproduct.RegisterProductInput;
 import com.example.testspringapp.api.inputoutput.registerproduct.RegisterProductOperation;
@@ -8,7 +8,6 @@ import com.example.testspringapp.persistence.entities.Product;
 import com.example.testspringapp.persistence.entities.ProductType;
 import com.example.testspringapp.persistence.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor

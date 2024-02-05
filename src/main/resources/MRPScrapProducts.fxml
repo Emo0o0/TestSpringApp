@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testspringapp.controllers.MRPScrapProductsController">
+
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#912525" height="700.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="300.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dedfc9" height="700.0" layoutX="300.0" stroke="#d11414" strokeType="INSIDE" strokeWidth="0.0" width="900.0" />
+
+    <Label fx:id="registerProductLabel" layoutX="72.0" layoutY="46.0" onMouseClicked="#registerProduct" stylesheets="@SideBarHover.css" text="Register Product" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="20.0" />
+        </font>
+    </Label>
+
+    <Label fx:id="registerCustomerLabel" layoutX="64.0" layoutY="91.0" onMouseClicked="#registerCustomer" stylesheets="@SideBarHover.css" text="Register Customer" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="20.0" />
+        </font>
+    </Label>
+
+    <Label fx:id="addProductsLabel" layoutX="64.0" layoutY="149.0" onMouseClicked="#addProductToClientCard" prefHeight="64.0" prefWidth="174.0" stylesheets="@SideBarHover.css" text="Register Products To Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+        <font>
+            <Font name="System Bold" size="20.0" />
+        </font>
+    </Label>
+
+    <Label fx:id="removeProductsLabel" layoutX="51.0" layoutY="223.0" onMouseClicked="#removeProductFromClientCard" prefHeight="87.0" prefWidth="198.0" stylesheets="@SideBarHover.css" text="Remove Products From Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+        <font>
+            <Font name="System Bold" size="20.0" />
+        </font>
+    </Label>
+
+    <Label fx:id="leaveLabel" layoutX="99.0" layoutY="591.0" onMouseClicked="#leave" stylesheets="@SideBarHover.css" text="Log Out" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="30.0" />
+        </font>
+    </Label>
+
+
+
+    <Label fx:id="scrapProductLabel" layoutX="85.0" layoutY="331.0" stylesheets="@SideBarHover.css" text="Scrap Products" textFill="WHITE" underline="true">
+        <font>
+            <Font name="System Bold" size="20.0" />
+        </font>
+    </Label>
+
+    <Button fx:id="submit" layoutX="675.0" layoutY="603.0" mnemonicParsing="false" onMousePressed="#ScrapProductsButtonSubmit" prefHeight="65.0" prefWidth="150.0" stylesheets="@button.css" text="Submit">
+        <font>
+            <Font name="System Bold" size="29.0" />
+        </font></Button>
+
+    <Label layoutX="623.0" layoutY="20.0" text="Scrap Products">
+        <font>
+            <Font name="System Bold" size="36.0" />
+        </font>
+    </Label>
+
+    <ListView fx:id="products" layoutX="415.0" layoutY="142.0" onMousePressed="#listViewChooseProduct" prefHeight="438.0" prefWidth="274.0" stylesheets="@listview.css" />
+    <TextField fx:id="productSearch" layoutX="415.0" layoutY="117.0" onKeyReleased="#filterProducts" prefHeight="25.0" prefWidth="274.0" />
+   <TextArea fx:id="productDescription" editable="false" layoutX="699.0" layoutY="142.0" prefHeight="271.0" prefWidth="367.0">
+      <font>
+         <Font size="20.0" />
+      </font></TextArea>
+   <Label fx:id="errorMessage" layoutX="618.0" layoutY="430.0" prefHeight="150.0" prefWidth="376.0" text="One or more products exist in customers' cards. Please remove them from the cards before scrapping the products" textFill="RED" visible="false" wrapText="true">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Label>
+   <Label fx:id="records" onMouseClicked="#viewRecords" layoutX="114.0" layoutY="383.0" stylesheets="@SideBarHover.css" text="Records" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="20.0" />
+      </font>
+   </Label>
+
+</AnchorPane>

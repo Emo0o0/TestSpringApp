@@ -22,13 +22,13 @@
         </font>
     </Label>
 
-    <Label fx:id="addProductsLabel" layoutX="64.0" layoutY="149.0" onMouseClicked="#addProductToClientCard" prefHeight="64.0" prefWidth="174.0" stylesheets="@SideBarHover.css" text="Register Product To Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Label fx:id="addProductsLabel" layoutX="64.0" layoutY="149.0" onMouseClicked="#addProductToClientCard" prefHeight="64.0" prefWidth="174.0" stylesheets="@SideBarHover.css" text="Register Products To Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
-    <Label fx:id="removeProductsLabel" layoutX="51.0" layoutY="223.0" prefHeight="87.0" prefWidth="198.0" stylesheets="@SideBarHover.css" text="Remove Product From Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Label fx:id="removeProductsLabel" layoutX="51.0" layoutY="223.0" onMouseClicked="#removeProductFromClientCard" prefHeight="87.0" prefWidth="198.0" stylesheets="@SideBarHover.css" text="Remove Products From Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
@@ -40,13 +40,8 @@
         </font>
     </Label>
 
-    <Label fx:id="scrappingCriteriaLabel" layoutX="87.0" layoutY="392.0" stylesheets="@SideBarHover.css" text="Scrap Criteria" textFill="WHITE">
-        <font>
-            <Font name="System Bold" size="20.0" />
-        </font>
-    </Label>
 
-    <Label fx:id="scrapProductLabel" layoutX="85.0" layoutY="334.0" stylesheets="@SideBarHover.css" text="Scrap Product" textFill="WHITE">
+    <Label fx:id="scrapProductLabel" layoutX="85.0" layoutY="334.0" onMouseClicked="#scrapProduct" stylesheets="@SideBarHover.css" text="Scrap Product" textFill="WHITE">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
@@ -99,5 +94,10 @@
          <Font name="System Bold" size="36.0" />
       </font>
    </Label>
+    <Label fx:id="records" layoutX="114.0" layoutY="383.0" onMouseClicked="#viewRecords" stylesheets="@SideBarHover.css" text="Records" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="20.0" />
+        </font>
+    </Label>
 
 </AnchorPane>

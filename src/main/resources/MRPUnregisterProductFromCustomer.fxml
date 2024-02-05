@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testspringapp.controllers.MRPRegisterProductToCustomerController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testspringapp.controllers.MRPUnregisterProductFromCustomerController">
 
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#912525" height="700.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="300.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dedfc9" height="700.0" layoutX="300.0" stroke="#d11414" strokeType="INSIDE" strokeWidth="0.0" width="900.0" />
@@ -22,13 +22,13 @@
         </font>
     </Label>
 
-    <Label fx:id="addProductsLabel" layoutX="64.0" layoutY="149.0" prefHeight="64.0" prefWidth="174.0" text="Register Products To Customer Card" textAlignment="CENTER" textFill="WHITE" underline="true" wrapText="true">
+    <Label fx:id="addProductsLabel" layoutX="64.0" layoutY="149.0" onMouseClicked="#addProductToClientCard" prefHeight="64.0" prefWidth="174.0" stylesheets="@SideBarHover.css" text="Register Products To Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
-    <Label fx:id="removeProductsLabel" layoutX="51.0" layoutY="223.0" onMouseClicked="#removeProductFromClientCard" prefHeight="87.0" prefWidth="198.0" stylesheets="@SideBarHover.css" text="Remove Products From Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Label fx:id="removeProductsLabel" layoutX="51.0" layoutY="223.0" prefHeight="87.0" prefWidth="198.0" stylesheets="@SideBarHover.css" text="Remove Products From Customer Card" textAlignment="CENTER" textFill="WHITE" underline="true" wrapText="true">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
@@ -41,30 +41,33 @@
     </Label>
 
 
+
     <Label fx:id="scrapProductLabel" layoutX="85.0" layoutY="334.0" onMouseClicked="#scrapProduct" stylesheets="@SideBarHover.css" text="Scrap Products" textFill="WHITE">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
-    <Button fx:id="submit" layoutX="675.0" layoutY="603.0" mnemonicParsing="false" onMousePressed="#registerProductToCustomerButtonClick" prefHeight="65.0" prefWidth="150.0" stylesheets="@button.css" text="Submit">
+    <Button fx:id="submit" layoutX="675.0" layoutY="603.0" mnemonicParsing="false" onMousePressed="#unregisterProductFromCustomerButtonClick" prefHeight="65.0" prefWidth="150.0" stylesheets="@button.css" text="Submit">
         <font>
             <Font name="System Bold" size="29.0" />
         </font></Button>
-   <Label layoutX="451.0" layoutY="26.0" text="Register Products To Customer Card">
-      <font>
-         <Font name="System Bold" size="36.0" />
-      </font>
-   </Label>
-   <ListView fx:id="products" layoutX="334.0" layoutY="142.0" onMousePressed="#listViewChooseItem" prefHeight="438.0" prefWidth="274.0" stylesheets="@listview.css" />
-   <ListView fx:id="customers" layoutX="894.0" layoutY="145.0" prefHeight="438.0" prefWidth="274.0" stylesheets="@listview.css" />
-   <TextArea fx:id="productDescription" editable="false" layoutX="608.0" layoutY="142.0" prefHeight="288.0" prefWidth="254.0">
-      <font>
-         <Font size="20.0" />
-      </font>
-   </TextArea>
-   <TextField fx:id="productSearch" layoutX="334.0" layoutY="117.0" onKeyReleased="#filterProducts" prefHeight="25.0" prefWidth="274.0" />
-   <TextField fx:id="customerSearch" layoutX="894.0" layoutY="120.0" onKeyReleased="#filterCustomers" prefHeight="25.0" prefWidth="274.0" />
+
+    <Label layoutX="451.0" layoutY="26.0" text="Remove Products From Customer Card">
+        <font>
+            <Font name="System Bold" size="36.0" />
+        </font>
+    </Label>
+
+    <ListView fx:id="products" layoutX="334.0" layoutY="142.0" onMousePressed="#listViewChooseProduct" prefHeight="438.0" prefWidth="274.0" stylesheets="@listview.css" />
+    <ListView fx:id="customers" layoutX="894.0" layoutY="145.0" onMousePressed="#listViewChooseCustomer" prefHeight="438.0" prefWidth="274.0" stylesheets="@listview.css" />
+    <TextArea fx:id="productDescription" editable="false" layoutX="608.0" layoutY="142.0" prefHeight="288.0" prefWidth="254.0">
+        <font>
+            <Font size="20.0" />
+        </font>
+    </TextArea>
+    <TextField fx:id="productSearch" layoutX="334.0" layoutY="117.0" onKeyReleased="#filterProducts" prefHeight="25.0" prefWidth="274.0" />
+    <TextField fx:id="customerSearch" layoutX="894.0" layoutY="120.0" onKeyReleased="#filterCustomers" prefHeight="25.0" prefWidth="274.0" />
 
     <Label fx:id="records" layoutX="114.0" layoutY="383.0" onMouseClicked="#viewRecords" stylesheets="@SideBarHover.css" text="Records" textFill="WHITE">
         <font>

@@ -2,6 +2,10 @@ package com.example.testspringapp.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.sql.Timestamp;
+import java.util.Set;
 
 @Entity
 @Table(name = "products")
@@ -10,6 +14,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode
 public class Product {
 
     @Id
@@ -26,7 +31,18 @@ public class Product {
     @Column
     private Integer scrappingCriteria;
 
+    @EqualsAndHashCode.Exclude
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "products")
+    private Set<Customer> customers;
 
+    @EqualsAndHashCode.Exclude
+    @CreationTimestamp
+    private Timestamp timestamp;
+
+
+    public void scrapProduct() {
+        this.amortization = 100d;
+    }
 
     @Override
     public String toString() {

@@ -1,4 +1,4 @@
-package com.example.testspringapp.core.services;
+package com.example.testspringapp.core.processors;
 
 import com.example.testspringapp.api.inputoutput.registercustomer.RegisterCustomerInput;
 import com.example.testspringapp.api.inputoutput.registercustomer.RegisterCustomerOperation;
@@ -6,7 +6,6 @@ import com.example.testspringapp.api.inputoutput.registercustomer.RegisterCustom
 import com.example.testspringapp.core.exceptions.registercustomer.*;
 import com.example.testspringapp.persistence.entities.Customer;
 import com.example.testspringapp.persistence.repositories.CustomerRepository;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

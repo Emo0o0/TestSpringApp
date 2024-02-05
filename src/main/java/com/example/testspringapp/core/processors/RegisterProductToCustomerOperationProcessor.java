@@ -1,4 +1,4 @@
-package com.example.testspringapp.core.services;
+package com.example.testspringapp.core.processors;
 
 import com.example.testspringapp.api.inputoutput.registerproducttocustomer.RegisterProductToCustomerInput;
 import com.example.testspringapp.api.inputoutput.registerproducttocustomer.RegisterProductToCustomerOperation;
