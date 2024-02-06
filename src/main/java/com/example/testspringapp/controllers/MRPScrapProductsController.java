@@ -45,6 +45,9 @@ public class MRPScrapProductsController {
 
     @FXML
     public void initialize(){
+        loadFXMLFields();
+    }
+    private void loadFXMLFields(){
         products.getItems().clear();
         products.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         products.getItems().addAll(productRepository.findAllByAmortizationLessThan(100d));

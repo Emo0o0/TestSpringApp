@@ -61,13 +61,15 @@ public class MRPRecordsClientsAndProductsController {
 
     @FXML
     public void initialize() {
+        loadFXMLFields();
+    }
+
+    private void loadFXMLFields(){
         allCustomersSet.clear();
         customersListView.getItems().addAll(customerRepository.findAll());
         allCustomersSet.addAll(customersListView.getItems());
 
-        //allProductsSet.clear();
         productsListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        //allProductsSet.addAll(productsListView.getItems());
     }
 
     public void registerProduct() {

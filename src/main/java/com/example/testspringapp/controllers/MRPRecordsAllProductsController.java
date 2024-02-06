@@ -45,6 +45,10 @@ public class MRPRecordsAllProductsController {
 
     @FXML
     public void initialize(){
+        loadFXMLFields();
+    }
+
+    private void loadFXMLFields(){
         productsComboBox.getItems().add("All products");
         productsComboBox.getItems().add("DMA");
         productsComboBox.getItems().add("MA");

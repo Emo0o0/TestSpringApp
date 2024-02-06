@@ -46,19 +46,14 @@ public class MRPRegisterProductController {
 
     @FXML
     public void initialize() {
-        showProductTypes();
+        loadFXMLFields();
     }
 
-
-    public void showProductTypes() {
+    private void loadFXMLFields(){
         productTypes.getItems().add("DMA");
         productTypes.getItems().add("MA");
         productTypes.setVisibleRowCount(2);
         productTypes.getSelectionModel().selectFirst();
-    }
-
-    public void setScrappingCriteria() {
-
     }
 
     public void registerCustomer() {

@@ -60,6 +60,10 @@ public class MRPRegisterProductToCustomerController {
     @FXML
     public void initialize() {
 
+       loadFXMLFields();
+
+    }
+    private void loadFXMLFields(){
         allProducts.clear();
         products.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         products.getItems().addAll(productRepository.findAllByAmortizationLessThan(100d));
@@ -69,7 +73,6 @@ public class MRPRegisterProductToCustomerController {
         customers.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         customers.getItems().addAll(customerRepository.findAll());
         allCustomers.addAll(customers.getItems());
-
     }
 
     public void registerProduct() {

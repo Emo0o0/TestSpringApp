@@ -59,10 +59,10 @@ public class MRPInboxController {
     @FXML
     public void initialize() {
 
-        loadTextFields();
+        loadFXMLFields();
     }
 
-    public void loadTextFields() {
+    private void loadFXMLFields() {
 
         oldNotifications.getItems().clear();
         newNotifications.getItems().clear();
@@ -109,7 +109,6 @@ public class MRPInboxController {
     public void viewRecords() {
         stageManager.switchScene(FxmlView.MRP_VIEW_RECORDS_CLIENTS_AND_PRODUCTS);
     }
-
 
     public void leave() {
         stageManager.switchScene(FxmlView.LOGIN);
@@ -169,7 +168,7 @@ public class MRPInboxController {
                 .build();
 
         deleteNotificationOperation.process(input);
-        loadTextFields();
+        loadFXMLFields();
         notificationMessage.clear();
     }
 }

@@ -56,6 +56,9 @@ public class MRPUnregisterProductFromCustomerController {
 
     @FXML
     public void initialize() {
+        loadFXMLFields();
+    }
+    private void loadFXMLFields(){
         allCustomers.clear();
         customers.getItems().addAll(customerRepository.findAll());
         allCustomers.addAll(customers.getItems());
