@@ -10,39 +10,49 @@
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#912525" height="700.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="300.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dedfc9" height="700.0" layoutX="300.0" stroke="#d11414" strokeType="INSIDE" strokeWidth="0.0" width="900.0" />
 
-    <Label fx:id="registerProductLabel" layoutX="72.0" layoutY="46.0" onMouseClicked="#registerProduct" stylesheets="@SideBarHover.css" text="Register Product" textFill="WHITE">
+    <Label fx:id="registerProductLabel" alignment="CENTER" layoutY="28.0" onMouseClicked="#registerProduct" prefHeight="63.0" prefWidth="300.0" stylesheets="@RecordsHover.css" text="Register Product" textFill="WHITE">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
-    <Label fx:id="registerCustomerLabel" layoutX="64.0" layoutY="91.0" onMouseClicked="#registerCustomer" stylesheets="@SideBarHover.css" text="Register Customer" textFill="WHITE">
+    <Label fx:id="registerCustomerLabel" alignment="CENTER" layoutY="90.0" onMousePressed="#registerCustomer" prefHeight="63.0" prefWidth="300.0" stylesheets="@RecordsHover.css" text="Register Customer" textFill="WHITE">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
-    <Label fx:id="addProductsLabel" layoutX="64.0" layoutY="149.0" onMouseClicked="#addProductToClientCard" prefHeight="64.0" prefWidth="174.0" stylesheets="@SideBarHover.css" text="Register Products To Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Label fx:id="addProductsLabel" alignment="CENTER" layoutX="1.0" layoutY="153.0" onMouseClicked="#addProductToClientCard" prefHeight="63.0" prefWidth="300.0" stylesheets="@RecordsHover.css" text="Register Products To Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
-    <Label fx:id="removeProductsLabel" layoutX="51.0" layoutY="223.0" onMouseClicked="#removeProductFromClientCard" prefHeight="87.0" prefWidth="198.0" stylesheets="@SideBarHover.css" text="Remove Products From Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Label fx:id="removeProductsLabel" alignment="CENTER" layoutX="1.0" layoutY="218.0" onMouseClicked="#removeProductFromClientCard" prefHeight="63.0" prefWidth="300.0" stylesheets="@RecordsHover.css" text="Remove Products From Customer Card" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
-    <Label fx:id="leaveLabel" layoutX="99.0" layoutY="591.0" onMouseClicked="#leave" stylesheets="@SideBarHover.css" text="Log Out" textFill="WHITE">
+    <Label fx:id="leaveLabel" alignment="CENTER" layoutX="-3.0" layoutY="591.0" onMouseClicked="#leave" prefHeight="63.0" prefWidth="300.0" stylesheets="@RecordsHover.css" text="Log Out" textFill="WHITE">
         <font>
             <Font name="System Bold" size="30.0" />
         </font>
     </Label>
 
+    <Label fx:id="scrapProductLabel" alignment="CENTER" layoutX="1.0" layoutY="281.0" prefHeight="63.0" prefWidth="300.0" stylesheets="@RecordsHover.css" text="Scrap Products" textFill="WHITE" underline="true">
+        <font>
+            <Font name="System Bold" size="20.0" />
+        </font>
+    </Label>
 
+    <Label fx:id="records" alignment="CENTER" layoutX="1.0" layoutY="338.0" onMouseClicked="#viewRecords" prefHeight="63.0" prefWidth="300.0" stylesheets="@RecordsHover.css" text="Records" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="20.0" />
+        </font>
+    </Label>
 
-    <Label fx:id="scrapProductLabel" layoutX="85.0" layoutY="331.0" stylesheets="@SideBarHover.css" text="Scrap Products" textFill="WHITE" underline="true">
+    <Label fx:id="inbox" alignment="CENTER" layoutX="1.0" layoutY="399.0" onMousePressed="#viewInbox" prefHeight="63.0" prefWidth="300.0" stylesheets="@RecordsHover.css" text="Inbox" textFill="WHITE">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
@@ -65,15 +75,11 @@
       <font>
          <Font size="20.0" />
       </font></TextArea>
-   <Label fx:id="errorMessage" layoutX="618.0" layoutY="430.0" prefHeight="150.0" prefWidth="376.0" text="One or more products exist in customers' cards. Please remove them from the cards before scrapping the products" textFill="RED" visible="false" wrapText="true">
+   <Label fx:id="errorMessage" layoutX="699.0" layoutY="430.0" prefHeight="150.0" prefWidth="376.0" text="One or more products exist in customers' cards. Please remove them from the cards before scrapping the products" textFill="RED" visible="false" wrapText="true">
       <font>
          <Font name="System Bold" size="24.0" />
       </font>
    </Label>
-   <Label fx:id="records" onMouseClicked="#viewRecords" layoutX="114.0" layoutY="383.0" stylesheets="@SideBarHover.css" text="Records" textFill="WHITE">
-      <font>
-         <Font name="System Bold" size="20.0" />
-      </font>
-   </Label>
+
 
 </AnchorPane>

@@ -26,6 +26,7 @@ public class RegisterProductOperationProcessor implements RegisterProductOperati
                 .description(registerProductInput.getDescription())
                 .productType(ProductType.valueOf(registerProductInput.getProductType()))
                 .amortization(Double.parseDouble(registerProductInput.getAmortization()))
+                .originalAmortization(Double.parseDouble(registerProductInput.getAmortization()))
                 .scrappingCriteria(Integer.parseInt(registerProductInput.getScrappingCriteria()))
                 .build();
 

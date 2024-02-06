@@ -1,4 +1,4 @@
-package com.example.testspringapp.api.inputoutput.registerproducttocustomer.searchcustomer;
+package com.example.testspringapp.api.inputoutput.searchcustomer;
 
 import com.example.testspringapp.api.base.OperationInput;
 import com.example.testspringapp.persistence.entities.Customer;

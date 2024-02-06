@@ -17,20 +17,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class MRPRegisterCustomerController {
 
-//    @FXML
-//    private Label registerProductLabel;
-//    @FXML
-//    private Label scrappingCriteriaLabel;
-//    @FXML
-//    private Label registerCustomerLabel;
-//    @FXML
-//    private Label addProductsLabel;
-//    @FXML
-//    private Label removeProductsLabel;
-//    @FXML
-//    private Label scrapProductLabel;
-//    @FXML
-//    private Label leaveLabel;
     @FXML
     private TextField clientName;
     @FXML
@@ -105,6 +91,9 @@ public class MRPRegisterCustomerController {
         stageManager.switchScene(FxmlView.MRP_VIEW_RECORDS_CLIENTS_AND_PRODUCTS);
     }
 
+    public void viewInbox(){
+        stageManager.switchScene(FxmlView.MRP_VIEW_INBOX);
+    }
     public void leave() {
         stageManager.switchScene(FxmlView.LOGIN);
     }

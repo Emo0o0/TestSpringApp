@@ -28,6 +28,8 @@ public class Product {
     private ProductType productType;
     @Column
     private Double amortization;
+    @Column(updatable = false)
+    private Double originalAmortization;
     @Column
     private Integer scrappingCriteria;
 
@@ -42,6 +44,14 @@ public class Product {
 
     public void scrapProduct() {
         this.amortization = 100d;
+    }
+
+    public void setAmortization(double value) {
+        amortization = value;
+    }
+
+    public void changeTypeToMA() {
+        this.productType = ProductType.MA;
     }
 
     @Override

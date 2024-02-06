@@ -31,7 +31,7 @@
          </LinearGradient>
       </fill>
    </Rectangle>
-   <Label fx:id="registerProductLabel" onMouseClicked="#registerProduct" onMouseEntered="#registerProductHover" onMouseExited="#registerProductHoverExit" layoutX="6.0" layoutY="29.0" text="Register Product" textFill="WHITE">
+   <Label fx:id="registerProductLabel" layoutX="6.0" layoutY="29.0" onMouseClicked="#registerProduct" onMouseEntered="#registerProductHover" onMouseExited="#registerProductHoverExit" text="Register Product" textFill="WHITE">
       <font>
          <Font name="System Bold" size="18.0" />
       </font>
@@ -66,7 +66,7 @@
          <Font name="System Bold" size="18.0" />
       </font>
    </Label>
-   <Label layoutX="425.0" layoutY="179.0" onMouseEntered="#scrapProductHover" text="Welcome Back " textFill="#2cff00">
+   <Label layoutX="423.0" layoutY="180.0" onMouseEntered="#scrapProductHover" text="Welcome Back " textFill="#2cff00">
       <font>
          <Font name="System Bold" size="24.0" />
       </font>

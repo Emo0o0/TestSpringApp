@@ -3,6 +3,8 @@ package com.example.testspringapp.persistence.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "users")
 @Getter
@@ -23,4 +25,11 @@ public class User {
     @Column
     @Enumerated(EnumType.STRING)
     private UserType userType;
+    @Column
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Notification> notifications;
+
+    public void notify(Notification notification){
+        notifications.add(notification);
+    }
 }

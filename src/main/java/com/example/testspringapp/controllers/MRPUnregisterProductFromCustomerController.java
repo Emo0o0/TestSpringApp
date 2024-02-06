@@ -1,9 +1,9 @@
 package com.example.testspringapp.controllers;
 
-import com.example.testspringapp.api.inputoutput.registerproducttocustomer.searchcustomer.SearchCustomerInput;
-import com.example.testspringapp.api.inputoutput.registerproducttocustomer.searchcustomer.SearchCustomerOperation;
-import com.example.testspringapp.api.inputoutput.registerproducttocustomer.searchproduct.SearchProductInput;
-import com.example.testspringapp.api.inputoutput.registerproducttocustomer.searchproduct.SearchProductOperation;
+import com.example.testspringapp.api.inputoutput.searchcustomer.SearchCustomerInput;
+import com.example.testspringapp.api.inputoutput.searchcustomer.SearchCustomerOperation;
+import com.example.testspringapp.api.inputoutput.searchproduct.SearchProductInput;
+import com.example.testspringapp.api.inputoutput.searchproduct.SearchProductOperation;
 import com.example.testspringapp.api.inputoutput.unregisterproductfromcustomer.UnregisterProductFromCustomerInput;
 import com.example.testspringapp.api.inputoutput.unregisterproductfromcustomer.UnregisterProductFromCustomerOperation;
 import com.example.testspringapp.configs.FxmlView;
@@ -18,6 +18,7 @@ import javafx.scene.control.*;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -84,6 +85,9 @@ public class MRPUnregisterProductFromCustomerController {
         stageManager.switchScene(FxmlView.MRP_VIEW_RECORDS_CLIENTS_AND_PRODUCTS);
     }
 
+    public void viewInbox(){
+        stageManager.switchScene(FxmlView.MRP_VIEW_INBOX);
+    }
     public void leave() {
         stageManager.switchScene(FxmlView.LOGIN);
     }
@@ -116,11 +120,12 @@ public class MRPUnregisterProductFromCustomerController {
         productDescription.setText("");
         StringBuilder sb = new StringBuilder();
         for (Product p : products.getSelectionModel().getSelectedItems()) {
-            sb.append(p.getTitle()).append("\n")
-                    .append(p.getDescription()).append("\n")
-                    .append(p.getProductType()).append("\n")
-                    .append(p.getAmortization()).append("\n")
-                    .append(p.getScrappingCriteria()).append("\n")
+            sb.append("Title: ").append(p.getTitle()).append("\n")
+                    .append("Description: ").append(p.getDescription()).append("\n")
+                    .append("Product type: ").append(p.getProductType()).append("\n")
+                    .append("Amortization: ").append(p.getAmortization()).append("\n")
+                    .append("Scrapping criteria: ").append(p.getScrappingCriteria()).append(" years\n")
+                    .append("Date registered: ").append(new Date(p.getTimestamp().getTime())).append("\n")
                     .append("\n");
         }
         productDescription.setText(sb.toString());

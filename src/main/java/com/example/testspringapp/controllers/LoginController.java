@@ -1,14 +1,14 @@
 package com.example.testspringapp.controllers;
 
+import com.example.testspringapp.api.inputoutput.autoamortizationcalculate.AutoAmortizationCalculateInput;
+import com.example.testspringapp.api.inputoutput.autoamortizationcalculate.AutoAmortizationCalculateOperation;
+import com.example.testspringapp.api.inputoutput.autotypecalculate.AutoTypeCalculateInput;
+import com.example.testspringapp.api.inputoutput.autotypecalculate.AutoTypeCalculateOperation;
 import com.example.testspringapp.api.inputoutput.login.LoginOperation;
 import com.example.testspringapp.api.inputoutput.login.LoginOperationInput;
-import com.example.testspringapp.persistence.entities.User;
-import com.example.testspringapp.persistence.entities.UserType;
 import com.example.testspringapp.persistence.repositories.UserRepository;
-import com.example.testspringapp.configs.FxmlView;
 import com.example.testspringapp.configs.StageManager;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -16,8 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-
-import java.util.Optional;
 
 @Component
 public class LoginController {
@@ -27,10 +25,6 @@ public class LoginController {
     @FXML
     private PasswordField password;
     @FXML
-    private Button login;
-    @FXML
-    private Button register;
-    @FXML
     private Label invalidInfo;
 
     private final StageManager stageManager;
@@ -38,24 +32,21 @@ public class LoginController {
 
     private final PasswordEncoder passwordEncoder;
     private final LoginOperation loginOperation;
+    private final AutoTypeCalculateOperation autoTypeCalculateOperation;
+    private final AutoAmortizationCalculateOperation autoAmortizationCalculateOperation;
 
     @Autowired
     @Lazy
-    public LoginController(StageManager stageManager, UserRepository userRepository, PasswordEncoder passwordEncoder, LoginOperation loginOperation) {
+    public LoginController(StageManager stageManager, UserRepository userRepository, PasswordEncoder passwordEncoder, LoginOperation loginOperation, AutoTypeCalculateOperation autoTypeCalculateOperation, AutoAmortizationCalculateOperation autoAmortizationCalculateOperation) {
         this.stageManager = stageManager;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.loginOperation = loginOperation;
+        this.autoTypeCalculateOperation = autoTypeCalculateOperation;
+        this.autoAmortizationCalculateOperation = autoAmortizationCalculateOperation;
     }
 
     public void login() {
-
-        //User user=User.builder()
-        //        .userType(UserType.ADMINISTRATOR)
-        //        .username("admin")
-        //        .password(passwordEncoder.encode("123"))
-        //        .build();
-        //userRepository.save(user);
 
         LoginOperationInput input = LoginOperationInput.builder()
                 .username(username.getText())
@@ -64,7 +55,9 @@ public class LoginController {
 
         try {
             loginOperation.process(input);
-        }catch (Exception e){
+            autoAmortizationCalculateOperation.process(new AutoAmortizationCalculateInput());
+            autoTypeCalculateOperation.process(new AutoTypeCalculateInput());
+        } catch (Exception e) {
             invalidInfo.setVisible(true);
             e.printStackTrace();
         }

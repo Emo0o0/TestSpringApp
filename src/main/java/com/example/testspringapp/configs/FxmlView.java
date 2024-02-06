@@ -104,7 +104,18 @@ public enum FxmlView {
         String getFxmlFile() {
             return  "MRPRecordsAllProducts.fxml";
         }
-    };
+    }, MRP_VIEW_INBOX{
+        @Override
+        String getTitle() {
+            return getStringFromResourceBundle("MRPInbox.title");
+        }
+
+        @Override
+        String getFxmlFile() {
+            return "MRPInbox.fxml";
+        }
+    }
+    ;
 
     abstract String getTitle();
 

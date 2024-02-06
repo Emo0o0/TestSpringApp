@@ -1,8 +1,8 @@
 package com.example.testspringapp.core.processors;
 
-import com.example.testspringapp.api.inputoutput.registerproducttocustomer.searchcustomer.SearchCustomerInput;
-import com.example.testspringapp.api.inputoutput.registerproducttocustomer.searchcustomer.SearchCustomerOperation;
-import com.example.testspringapp.api.inputoutput.registerproducttocustomer.searchcustomer.SearchCustomerOutput;
+import com.example.testspringapp.api.inputoutput.searchcustomer.SearchCustomerInput;
+import com.example.testspringapp.api.inputoutput.searchcustomer.SearchCustomerOperation;
+import com.example.testspringapp.api.inputoutput.searchcustomer.SearchCustomerOutput;
 import com.example.testspringapp.persistence.entities.Customer;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,9 @@ public class SearchCustomerOperationProcessor implements SearchCustomerOperation
 
         Set<Customer> filteredCustomers = new HashSet<>();
         for (Customer c : searchCustomerInput.getCustomers()) {
-            if (c.getEmail().toLowerCase().contains(searchCustomerInput.getSearchWord().toLowerCase())) {
+            if (c.getEmail().toLowerCase().contains(searchCustomerInput.getSearchWord().toLowerCase())
+                    || c.getName().toLowerCase().contains(searchCustomerInput.getSearchWord().toLowerCase())
+                    || c.getPhone().contains(searchCustomerInput.getSearchWord())) {
                 filteredCustomers.add(c);
             }
         }

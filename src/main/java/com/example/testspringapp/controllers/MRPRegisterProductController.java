@@ -80,6 +80,9 @@ public class MRPRegisterProductController {
         stageManager.switchScene(FxmlView.MRP_SCRAP_PRODUCTS);
     }
 
+    public void viewInbox(){
+        stageManager.switchScene(FxmlView.MRP_VIEW_INBOX);
+    }
     public void leave() {
         stageManager.switchScene(FxmlView.LOGIN);
     }
