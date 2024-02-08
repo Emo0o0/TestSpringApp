@@ -49,10 +49,7 @@ public class ScrapProductsOperationProcessor implements ScrapProductsOperation {
             p.scrapProduct();
             productRepository.save(p);
             autoTypeCalculateOperation.process(new AutoTypeCalculateInput());
-
-
-
-
+        }
         return ScrapProductsOutput.builder()
                 .success(true)
                 .build();
