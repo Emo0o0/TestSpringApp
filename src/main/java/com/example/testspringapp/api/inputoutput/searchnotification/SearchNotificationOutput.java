@@ -12,7 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SearchNotificationResult implements OperationResult {
+public class SearchNotificationOutput implements OperationResult {
 
     private Set<Notification> filteredNotifications;
     private Boolean success;

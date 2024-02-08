@@ -5,7 +5,7 @@ import com.example.testspringapp.api.inputoutput.autoamortizationcalculate.AutoA
 import com.example.testspringapp.api.inputoutput.autotypecalculate.AutoTypeCalculateInput;
 import com.example.testspringapp.api.inputoutput.autotypecalculate.AutoTypeCalculateOperation;
 import com.example.testspringapp.api.inputoutput.login.LoginOperation;
-import com.example.testspringapp.api.inputoutput.login.LoginOperationInput;
+import com.example.testspringapp.api.inputoutput.login.LoginInput;
 import com.example.testspringapp.persistence.repositories.UserRepository;
 import com.example.testspringapp.configs.StageManager;
 import javafx.fxml.FXML;
@@ -48,7 +48,7 @@ public class LoginController {
 
     public void login() {
 
-        LoginOperationInput input = LoginOperationInput.builder()
+        LoginInput input = LoginInput.builder()
                 .username(username.getText())
                 .password(password.getText())
                 .build();

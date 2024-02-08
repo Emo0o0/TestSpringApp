@@ -27,7 +27,6 @@ public class Notification {
     private String title;
     private String message;
     private Boolean read;
-    //@EqualsAndHashCode.Exclude
     @CreationTimestamp
     private Timestamp timestamp;
     @EqualsAndHashCode.Exclude

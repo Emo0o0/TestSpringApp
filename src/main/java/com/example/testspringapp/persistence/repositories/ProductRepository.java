@@ -10,7 +10,6 @@ import java.util.Set;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    //Optional<Product> findByAmortization(Double id);
     Set<Product> findByAmortization(Double amount);
     Set<Product> findAllByAmortizationLessThan(Double amount);
     Set<Product> findAllByProductType(ProductType productType);

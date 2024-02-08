@@ -1,8 +1,8 @@
 package com.example.testspringapp.core.processors;
 
 import com.example.testspringapp.api.inputoutput.login.LoginOperation;
-import com.example.testspringapp.api.inputoutput.login.LoginOperationInput;
-import com.example.testspringapp.api.inputoutput.login.LoginOperationOutput;
+import com.example.testspringapp.api.inputoutput.login.LoginInput;
+import com.example.testspringapp.api.inputoutput.login.LoginOutput;
 import com.example.testspringapp.configs.FxmlView;
 import com.example.testspringapp.configs.LoggedUser;
 import com.example.testspringapp.configs.StageManager;
@@ -26,7 +26,7 @@ public class LoginOperationProcessor implements LoginOperation {
 
 
     @Override
-    public LoginOperationOutput process(LoginOperationInput input) {
+    public LoginOutput process(LoginInput input) {
 
         User user = userRepository.findByUsername(input.getUsername()).orElseThrow(() -> new UserNotFoundException("ACCESS DENIED"));
 
@@ -43,7 +43,7 @@ public class LoginOperationProcessor implements LoginOperation {
 
         LoggedUser.setLoggedUser(user);
 
-        return LoginOperationOutput.builder()
+        return LoginOutput.builder()
                 .username(user.getUsername())
                 .success(true)
                 .build();

@@ -33,10 +33,6 @@ public class Customer {
     )
     private Set<Product> products;
 
-
-    /*public Set<Product> getProducts(){
-        return new HashSet<>(products);
-    }*/
     public boolean addProduct(Product product){
         return products.add(product);
     }

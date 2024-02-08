@@ -27,13 +27,16 @@ public class AutoAmortizationCalculateOperationProcessor implements AutoAmortiza
         double yearlyIncrease;
         int yearsPassed;
 
+
         for (Product p : productRepository.findAllByAmortizationLessThan(100d)) {
 
-            yearlyIncrease = (100 - p.getAmortization()) / p.getScrappingCriteria();
-            yearsPassed = currentDate.getYear() - p.getTimestamp().toInstant().atZone(ZoneId.of("UTC")).toLocalDateTime().getYear();
-            newAmortizationValue = p.getOriginalAmortization() + (yearlyIncrease * yearsPassed);
-            p.setAmortization(newAmortizationValue);
-            productRepository.save(p);
+            if(p.getScrappingCriteria()>0) {
+                yearlyIncrease = (100 - p.getAmortization()) / p.getScrappingCriteria();
+                yearsPassed = currentDate.getYear() - p.getTimestamp().toInstant().atZone(ZoneId.of("UTC")).toLocalDateTime().getYear();
+                newAmortizationValue = p.getOriginalAmortization() + (yearlyIncrease * yearsPassed);
+                p.setAmortization(newAmortizationValue);
+                productRepository.save(p);
+            }
         }
 
         return AutoAmortizationCalculateOutput.builder()

@@ -1,6 +1,6 @@
 package com.example.testspringapp.api.inputoutput.login;
 
-import com.example.testspringapp.api.base.OperationResult;
+import com.example.testspringapp.api.base.OperationInput;
 import lombok.*;
 
 @Getter
@@ -8,9 +8,9 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class LoginOperationOutput implements OperationResult {
+public class LoginInput implements OperationInput {
 
     private String username;
-    private Boolean success;
+    private String password;
 
 }
