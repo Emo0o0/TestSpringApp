@@ -47,6 +47,7 @@ public class ScrapProductsOperationProcessor implements ScrapProductsOperation {
                     .build();
             notificationOperation.process(input);
             p.scrapProduct();
+            p.changeTypeToMA();
             productRepository.save(p);
             autoTypeCalculateOperation.process(new AutoTypeCalculateInput());
         }

@@ -31,7 +31,7 @@ public class AutoAmortizationCalculateOperationProcessor implements AutoAmortiza
         for (Product p : productRepository.findAllByAmortizationLessThan(100d)) {
 
             if(p.getScrappingCriteria()>0) {
-                yearlyIncrease = (100 - p.getAmortization()) / p.getScrappingCriteria();
+                yearlyIncrease = (100 - p.getOriginalAmortization()) / p.getScrappingCriteria();
                 yearsPassed = currentDate.getYear() - p.getTimestamp().toInstant().atZone(ZoneId.of("UTC")).toLocalDateTime().getYear();
                 newAmortizationValue = p.getOriginalAmortization() + (yearlyIncrease * yearsPassed);
                 p.setAmortization(newAmortizationValue);

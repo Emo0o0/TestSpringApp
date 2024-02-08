@@ -31,7 +31,7 @@ public class AutoTypeCalculateOperationProcessor implements AutoTypeCalculateOpe
         autoAmortizationCalculateOperation.process(input);
 
 
-        for (Product p : productRepository.findAll()) {
+        for (Product p : productRepository.findAllByAmortizationLessThan(100d)) {
             if (p.getProductType() == ProductType.DMA && p.getAmortization() > 64) {
                 p.changeTypeToMA();
                 NotificationInput notificationInput = NotificationInput.builder()
